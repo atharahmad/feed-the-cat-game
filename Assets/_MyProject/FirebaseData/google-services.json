@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "441623435735",
+    "firebase_url": "https://feed-the-cat-715c0-default-rtdb.firebaseio.com",
+    "project_id": "feed-the-cat-715c0",
+    "storage_bucket": "feed-the-cat-715c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441623435735:android:655849d402b2de29539392",
+        "android_client_info": {
+          "package_name": "com.MagmaDev.FeedTheCat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441623435735-3l2cv4jodfaqla4ih52pmfnust6semsl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.MagmaDev.FeedTheCat",
+            "certificate_hash": "8c672e95c0eda5359f531f640a0b713cd352c5ff"
+          }
+        },
+        {
+          "client_id": "441623435735-3cj7aeb68osm35ajugrv61omkqiqot87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB50g4DAC7jzLrw4H2YM0_4jihBIuGHGSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441623435735-3cj7aeb68osm35ajugrv61omkqiqot87.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc73a06d2b806594fba7d0680d15b33f, type: 3}
+  m_Name: NewIceCream 16
+  m_EditorClassIdentifier: 
+  <Id>k__BackingField: 16
+  <Whole>k__BackingField: {fileID: 21300000, guid: 903f37b43cb54214cb76baa2951a4a17, type: 3}
+  <SemiMelted>k__BackingField: {fileID: 21300000, guid: 05efc8a35bdaaff488aba063674fc16d, type: 3}
+  <Melted>k__BackingField: {fileID: 21300000, guid: cdf64a7cb94dc5441bc8c934d1a2ffe0, type: 3}
