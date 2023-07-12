@@ -7,6 +7,7 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField] private CharacterVisual characterVisual;
     public static Action OnEatenIceCream;
+
     private void OnTriggerEnter2D(Collider2D _collision)
     {
         FoodController _foodController = _collision.gameObject.GetComponent<FoodController>();
@@ -36,7 +37,10 @@ public class CharacterController : MonoBehaviour
                     GamePlayManager.Instance.TakeDamage(1);
                 break;
             case FoodType.RewardingIceCream:
-                AdHandler.Instance.Setup();
+                Routine.WaitAndCall(1f, () =>
+                {
+                    AdHandler.Instance.Setup();
+                });
                 Routine.WaitAndCall(0.35f, () => {
                     characterVisual.EatIceCream();
                     AudioManager.Instance.Play(AudioManager.ICE_CREAM_COLLECT);

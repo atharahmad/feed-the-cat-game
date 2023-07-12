@@ -37,7 +37,7 @@ public class ContinueHandler : MonoBehaviour
         closeButton.onClick.AddListener(Lose);
         
         StartCoroutine(TimerRoutine());
-        priceDisplay.text = price+" Coins";
+        //priceDisplay.text = price+" Coins";
     }
 
     private void OnDisable()
@@ -87,7 +87,7 @@ public class ContinueHandler : MonoBehaviour
                 break;
             }
             counter += Time.deltaTime;
-            timerDisplay.text = (int)(continueTime - counter) + "...";
+            //timerDisplay.text = (int)(continueTime - counter) + "...";
             timerBar.fillAmount = counter / continueTime;
             yield return null;
         }

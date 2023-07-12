@@ -38,15 +38,16 @@ public class MeltedIceCreamHandler : MonoBehaviour
 
     private void IncreaseMeltedIce()
     {
-        if (size >= 1)
-        {
-            return;
-        }
+        //if (size > 1)
+        //{
+        //    return;
+        //}
         size += meltingSpeed;
         //UpdateVisual();
 
         if (myTransform.localScale.y >= 1)
         {
+            Debug.Log("Drown");
             GamePlayManager.Instance.Drown();
         }
     }

@@ -52,6 +52,7 @@ public class CharacterVisual : MonoBehaviour
     {
         icecreamStick.eulerAngles = new Vector3(0, 0, UnityEngine.Random.Range(0, 360));
         Routine.MoveConstant(icecreamStick, mouthPosition.position, new Vector2(mouthPosition.position.x, floorPosition.position.y), 0.03f);
+        
     }
 
     private void SetState(State _newState)
