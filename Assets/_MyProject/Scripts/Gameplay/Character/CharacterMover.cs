@@ -1,21 +1,17 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CharacterMover : MonoBehaviour, IPointerMoveHandler, IPointerUpHandler, IPointerDownHandler
+public class CharacterMover : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     //[SerializeField] float speed;
     [SerializeField] private Transform leftBound;
     [SerializeField] private Transform rightBound;
 
     private delegate Vector3 GetPositionHandler();
+    private bool inputting;
 
     [SerializeField] private Transform playerHolder;
-    private Vector2 clickedAt;
 
-
-    private void Awake()
-    {
-    }
 
     private void Update()
     {
@@ -23,7 +19,7 @@ public class CharacterMover : MonoBehaviour, IPointerMoveHandler, IPointerUpHand
         {
             return;
         }
-        if (GamePlayManager.input.Inputting()) 
+        if (inputting) 
         {
             playerHolder.position += new Vector3(GamePlayManager.input.Drag().x, 0, 0);
         }
@@ -32,20 +28,12 @@ public class CharacterMover : MonoBehaviour, IPointerMoveHandler, IPointerUpHand
     public void OnPointerDown(PointerEventData _eventData)
     {
         GamePlayManager.input.OnInputDown();
-        clickedAt = _eventData.position;
-    }
-
-    public void OnPointerMove(PointerEventData _eventData)
-    {
-        if (clickedAt == default)
-        {
-            return;
-        }
+        inputting = true;
     }
 
     public void OnPointerUp(PointerEventData _eventData)
     {
         GamePlayManager.input.OnInputUp();
-        clickedAt = default;
+        inputting = false;
     }
 }
