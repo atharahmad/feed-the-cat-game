@@ -95,6 +95,7 @@ public class ContinueHandler : MonoBehaviour
 
     void Lose()
     {
+        Debug.Log("Loooose");
         loseHandler.Setup();
         gameObject.SetActive(false);
     }

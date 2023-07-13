@@ -11,7 +11,7 @@ public class LoseHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI highScoreDisplay;
     [SerializeField] private TextMeshProUGUI bonusPawsDisplay;
     [SerializeField] private TextMeshProUGUI bonusElixirsDisplay;
-    [SerializeField] private TextMeshProUGUI bonusExtraLivesDisplay;
+    //[SerializeField] private TextMeshProUGUI bonusExtraLivesDisplay;
     [SerializeField] private TextMeshProUGUI bonusBiscuitsDisplay;
     [SerializeField] private LevelUpHandler levelUpHandler;
 
@@ -26,7 +26,7 @@ public class LoseHandler : MonoBehaviour
         highScoreDisplay.text = DataManager.Instance.PlayerData.HighScore.ToString();
         bonusPawsDisplay.text = "+"+levelUpHandler.PawsEarned;
         bonusElixirsDisplay.text = "+"+levelUpHandler.ElixirsEarned;
-        bonusExtraLivesDisplay.text = "+"+levelUpHandler.ExtraLivesEarned;
+        //bonusExtraLivesDisplay.text = "+"+levelUpHandler.ExtraLivesEarned;
         bonusBiscuitsDisplay.text = "+"+levelUpHandler.BiscuitsEarned;
         
         levelUpHandler.Check();
@@ -40,7 +40,7 @@ public class LoseHandler : MonoBehaviour
 
     private void OnDisable()
     {
-        ResumeHandler.Instance.Resume();
+        //ResumeHandler.Instance.Resume();
         resetButton.onClick.RemoveListener(Replay);
         mainMenuButton.onClick.RemoveListener(MainMenu);
     }
