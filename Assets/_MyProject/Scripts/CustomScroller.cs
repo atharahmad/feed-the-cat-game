@@ -22,7 +22,7 @@ public class CustomScroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        level.anchoredPosition = Vector3.MoveTowards(level.anchoredPosition, targetPosition, speed );
+        level.anchoredPosition = Vector3.Lerp(level.anchoredPosition, targetPosition, speed );
     }
     public void Drag()
     {

@@ -6160,6 +6160,7 @@ MonoBehaviour:
   movementStartRange: -6320
   movementEndRange: 6100
   targetPosition: {x: 0, y: 0}
+  level: {fileID: 0}
   speed: 0.02
   swipeSpeed: 1
 --- !u!114 &886509704
