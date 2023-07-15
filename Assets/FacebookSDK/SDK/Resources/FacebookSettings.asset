@@ -12,16 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: -2115301841, guid: c49f2b3ca212b47fc9cd8ce655177c89, type: 3}
   m_Name: FacebookSettings
   m_EditorClassIdentifier: 
-  selectedAppIndex: 1
+  selectedAppIndex: 0
   clientTokens:
   - 20bdba4d90001e02f0546e1ed916b9b2
-  - e5d543cb62db617408d6db50b5132655
   appIds:
   - 3641871472710676
-  - 1267546517462265
   appLabels:
   - Feed The Cat
-  - feedthecat
   cookie: 1
   logging: 1
   status: 1
@@ -30,7 +27,6 @@ MonoBehaviour:
   androidKeystorePath: 
   iosURLSuffix: 
   appLinkSchemes:
-  - list: []
   - list: []
   uploadAccessToken: 
   autoLogAppEventsEnabled: 1
