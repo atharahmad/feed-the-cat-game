@@ -59,8 +59,7 @@ public class FoodChillies : FoodController
         _sequence.Append(DOTween.To(() => _currentX, _x => _currentX = _x, _endPositionX, _animationTime).OnUpdate(() =>
         {
             transform.position = new Vector3(_currentX, _position.y, _position.z);
-            if (transform.position.x<GamePlayUI.Instance.LeftSpawnBoundary.position.x||
-                transform.position.x>GamePlayUI.Instance.RightSpawnBoundary.position.x)
+            if (transform.position.x < Screen.width / 12f || transform.position.x > Screen.width - Screen.width / 12f)
             {
                 _sequence.Kill();
             }

@@ -5,14 +5,10 @@ using TMPro;
 public class GamePlayUI : MonoBehaviour
 {
     public static GamePlayUI Instance;
-    [SerializeField] private TextMeshProUGUI highScoreDisplay;
     [SerializeField] private Button pauseButton;
-
     [SerializeField] private PauseHandler pauseHandler;
     [SerializeField] private ContinueHandler continueHandler;
-
-    [field: SerializeField] public Transform LeftSpawnBoundary { get; private set; }
-    [field: SerializeField] public Transform RightSpawnBoundary { get; private set; }
+    [SerializeField] private TextMeshProUGUI highScoreDisplay;
 
     private void Awake()
     {

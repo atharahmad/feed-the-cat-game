@@ -45,10 +45,10 @@ public class MeltedIceCreamHandler : MonoBehaviour
         size += meltingSpeed;
         //UpdateVisual();
 
-        if (myTransform.localScale.y >= 1)
+        if (myTransform.localScale.y >= .9f)
         {
             Debug.Log("Drown");
-            GamePlayManager.Instance.Drown();
+            Routine.WaitAndCall (0.5f, () => GamePlayManager.Instance.Drown());
         }
     }
 

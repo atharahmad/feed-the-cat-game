@@ -37,15 +37,11 @@ public class CharacterController : MonoBehaviour
                     GamePlayManager.Instance.TakeDamage(1);
                 break;
             case FoodType.RewardingIceCream:
-                Routine.WaitAndCall(1f, () =>
-                {
-                    AdHandler.Instance.Setup();
-                });
                 Routine.WaitAndCall(0.35f, () => {
                     characterVisual.EatIceCream();
                     AudioManager.Instance.Play(AudioManager.ICE_CREAM_COLLECT);
                 });
-                Routine.WaitAndCall(0.55f, () => characterVisual.ThrowStick());
+                Routine.WaitAndCall(0.55f, () => { characterVisual.ThrowStick(); AdHandler.Instance.Setup(); });
                 break;
             case FoodType.Coin:
                 int _amountOfCoins = _foodController.Score * GamePlayManager.Instance.Multiplier;

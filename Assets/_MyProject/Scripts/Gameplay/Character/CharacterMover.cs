@@ -9,9 +9,15 @@ public class CharacterMover : MonoBehaviour, IPointerUpHandler, IPointerDownHand
 
     private delegate Vector3 GetPositionHandler();
     private bool inputting;
+    private float minLimit;
+    private float maxLimit;
 
     [SerializeField] private Transform playerHolder;
-
+    private void Start()
+    {
+        minLimit = Screen.width / 12f;
+        maxLimit = Screen.width - Screen.width / 12f;
+    }
 
     private void Update()
     {
@@ -22,6 +28,10 @@ public class CharacterMover : MonoBehaviour, IPointerUpHandler, IPointerDownHand
         if (inputting) 
         {
             playerHolder.position += new Vector3(GamePlayManager.input.Drag().x, 0, 0);
+            if (playerHolder.position.x < minLimit)
+                playerHolder.position = new Vector3 (minLimit, playerHolder.position.y, playerHolder.position.z);
+            if (playerHolder.position.x > maxLimit)
+                playerHolder.position = new Vector3 (maxLimit, playerHolder.position.y, playerHolder.position.z);
         }
     }
 
