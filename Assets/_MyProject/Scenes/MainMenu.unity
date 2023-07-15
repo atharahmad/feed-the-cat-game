@@ -5945,8 +5945,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 30.3208, y: 4.249999}
-  m_SizeDelta: {x: -81.6865, y: -45.099995}
+  m_AnchoredPosition: {x: 30.3208, y: 8}
+  m_SizeDelta: {x: -81.6865, y: -44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &809011531
 MonoBehaviour:
@@ -5995,10 +5995,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.65
-  m_fontSizeBase: 62.5
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -14410,8 +14410,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -87.19999, y: 4.4000025}
-  m_SizeDelta: {x: -126.1927, y: -42.4}
+  m_AnchoredPosition: {x: -82.5, y: 8}
+  m_SizeDelta: {x: -135, y: -42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1997258461
 MonoBehaviour:
@@ -14460,10 +14460,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.1
-  m_fontSizeBase: 62.5
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -15749,15 +15749,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5078547816187679833, guid: 1b95fad37db325d4ba3d835070f190dc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -42.4
+      value: -42
       objectReference: {fileID: 0}
     - target: {fileID: 5078547816187679833, guid: 1b95fad37db325d4ba3d835070f190dc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.5999975
+      value: 6.9999995
       objectReference: {fileID: 0}
     - target: {fileID: 5078547816187679834, guid: 1b95fad37db325d4ba3d835070f190dc, type: 3}
       propertyPath: m_fontSize
-      value: 54.1
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078547816187679834, guid: 1b95fad37db325d4ba3d835070f190dc, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078547816187679834, guid: 1b95fad37db325d4ba3d835070f190dc, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
