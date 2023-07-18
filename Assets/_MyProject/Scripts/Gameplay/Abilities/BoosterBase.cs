@@ -43,9 +43,9 @@ public class BoosterBase : MonoBehaviour
         if (!DataManager.Instance.PlayerData.UnlockedBoosters.Contains(boosterSO.Id))
         {
             Color _color = displayImage.color;
-            _color.a = 0;
+            //_color.a = 0;
             displayImage.color = _color;
-            lockedHolder.SetActive(true);
+            //lockedHolder.SetActive(true);
         }
         ShowGraphics();
     }

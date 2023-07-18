@@ -9,6 +9,7 @@ public class GamePlayUI : MonoBehaviour
     [SerializeField] private PauseHandler pauseHandler;
     [SerializeField] private ContinueHandler continueHandler;
     [SerializeField] private TextMeshProUGUI highScoreDisplay;
+    [SerializeField] private TextMeshProUGUI timerDisplay;
 
     private void Awake()
     {
@@ -58,6 +59,9 @@ public class GamePlayUI : MonoBehaviour
     {
         highScoreDisplay.text = GamePlayManager.ScoreToString(DataManager.Instance.PlayerData.HighScore);
     }
-
+    public void SetTimer(float _time)
+    {
+        timerDisplay.text = _time.ToString();
+    }
 
 }

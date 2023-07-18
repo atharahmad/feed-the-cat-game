@@ -17,6 +17,7 @@ public class HealthDisplayer : MonoBehaviour
 
     private void ShowHealth()
     {
-        healthDisplay.fillAmount = (float)GamePlayManager.Instance.CurrentAmountOfLives / GamePlayManager.Instance.MaxAmountOfLives;
+        Routine.Lerp(healthDisplay.fillAmount, (float)GamePlayManager.Instance.CurrentAmountOfLives / GamePlayManager.Instance.MaxAmountOfLives, .2f, (fill) => healthDisplay.fillAmount = fill);
+        //healthDisplay.fillAmount =  (float)GamePlayManager.Instance.CurrentAmountOfLives / GamePlayManager.Instance.MaxAmountOfLives;
     }
 }

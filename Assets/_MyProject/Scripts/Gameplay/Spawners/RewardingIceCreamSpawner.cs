@@ -26,10 +26,11 @@ public class RewardingIceCreamSpawner : MonoBehaviour
         }
 
         counter -= Time.deltaTime;
-
+        GamePlayUI.Instance.SetTimer((int)counter);
         if (counter <= 0)
         {
             counter = Random.Range(minCooldown, maxCooldown);
+            GamePlayUI.Instance.SetTimer((int)counter);
             FoodController _rewardingIceCream = Instantiate(prefab, foodHolder);
 
             Vector3 _spawnPosition = new Vector3();
