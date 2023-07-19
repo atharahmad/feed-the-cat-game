@@ -3528,10 +3528,10 @@ RectTransform:
   m_Father: {fileID: 700730599}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -5000}
-  m_SizeDelta: {x: 960, y: 10000}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 10000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &411518960
 MonoBehaviour:
@@ -14148,7 +14148,7 @@ MonoBehaviour:
   coinsButton: {fileID: 1293719609}
   livesButton: {fileID: 2051989978}
   keysButton: {fileID: 1524009359}
-  settingsButton: {fileID: 184732524}
+  settingsButton: {fileID: 605920255685803076}
   moreLivesDisplay: {fileID: 487595339}
   keysDisplay: {fileID: 1578507056}
   settingsUI: {fileID: 573141269}
@@ -15705,19 +15705,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &605920255685803077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605920255685803083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca4d0d9c6e5bb9e48a464b44bb75aea6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinsDisplay: {fileID: 605920257041911499}
 --- !u!222 &605920255685803078
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15787,7 +15774,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 605920255685803082}
-  - component: {fileID: 605920255685803077}
   - component: {fileID: 605920255685803078}
   - component: {fileID: 605920255685803079}
   - component: {fileID: 605920255685803076}
