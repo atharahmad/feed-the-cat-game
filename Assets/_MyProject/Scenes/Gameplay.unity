@@ -12213,7 +12213,7 @@ MonoBehaviour:
   priceDisplay: {fileID: 597530420}
   loseHandler: {fileID: 1812161132}
   price: 0
-  continueTime: 10
+  continueTime: 5
 --- !u!114 &1740261734 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3678646836223948484, guid: 79a91a5c24450dc4ca87ddc50b1a2006, type: 3}
