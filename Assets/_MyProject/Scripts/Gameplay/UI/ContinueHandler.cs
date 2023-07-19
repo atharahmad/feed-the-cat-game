@@ -1,6 +1,6 @@
 using System.Collections;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ContinueHandler : MonoBehaviour
@@ -10,7 +10,7 @@ public class ContinueHandler : MonoBehaviour
     [SerializeField] private Button continueWithCoinsButton;
     [SerializeField] private Button watchAdButton;
     [SerializeField] private Button closeButton;
-    [SerializeField] private TextMeshProUGUI priceDisplay; 
+    [SerializeField] private TextMeshProUGUI priceDisplay;
 
     [SerializeField] private LoseHandler loseHandler;
     [SerializeField] private int price;
@@ -26,18 +26,18 @@ public class ContinueHandler : MonoBehaviour
         gameObject.SetActive(true);
         if (hasUsed)
         {
-            Lose();   
+            Lose();
         }
     }
-    
+
     private void OnEnable()
     {
         continueWithCoinsButton.onClick.AddListener(ContinueWithCoins);
         watchAdButton.onClick.AddListener(WatchAddToContinue);
         closeButton.onClick.AddListener(Lose);
-        
+
         StartCoroutine(TimerRoutine());
-        //priceDisplay.text = price+" Coins";
+        priceDisplay.text = price.ToString();
     }
 
     private void OnDisable()
@@ -49,7 +49,7 @@ public class ContinueHandler : MonoBehaviour
 
     void ContinueWithCoins()
     {
-        if (DataManager.Instance.PlayerData.Coins>=price)
+        if (DataManager.Instance.PlayerData.Coins >= price)
         {
             DataManager.Instance.PlayerData.Coins -= price;
             Continue();
@@ -63,7 +63,7 @@ public class ContinueHandler : MonoBehaviour
             watchAdButton.interactable = false;
             return;
         }
-        
+
         AdManager.Instance.WatchedAd.AddListener(Continue);
         AdManager.Instance.PlayInterstitialAd();
     }
@@ -81,13 +81,13 @@ public class ContinueHandler : MonoBehaviour
     {
         while (gameObject.activeSelf)
         {
-            if (counter>=continueTime)
+            if (counter >= continueTime)
             {
                 Lose();
                 break;
             }
             counter += Time.deltaTime;
-            //timerDisplay.text = (int)(continueTime - counter) + "...";
+            timerDisplay.text = (int)(continueTime - counter) + "...";
             timerBar.fillAmount = counter / continueTime;
             yield return null;
         }
