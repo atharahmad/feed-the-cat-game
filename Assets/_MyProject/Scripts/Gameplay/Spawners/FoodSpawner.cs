@@ -20,7 +20,6 @@ public class FoodSpawner : MonoBehaviour
     private int spawnedCounter;
     private int spawnChilliAt;
     private int totalSpawnCounter;
-    private Vector2 foodSize;
 
     private void Awake()
     {
@@ -33,7 +32,6 @@ public class FoodSpawner : MonoBehaviour
         spawnTimerCounter = 3;
         spawnedCounter = 0;
         spawnChilliAt = 3;
-        foodSize = chilliPrefab.GetComponent<Collider2D>().bounds.size * 2f;
     }
     private void Update()
     {

@@ -22,6 +22,7 @@ public class FoodIceCream : FoodController
         iceCream = iceCreams[Random.Range(0, iceCreams.Length)];
         imageDisplay.sprite = iceCream.Whole;
         imageDisplay.SetNativeSize();
+        GetComponent<RectTransform>().sizeDelta = GetComponent<RectTransform>().sizeDelta * 1.1f;
     }
 
     protected override void HandleCollisionWithBorder()
