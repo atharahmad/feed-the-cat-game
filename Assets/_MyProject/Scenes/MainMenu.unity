@@ -1148,8 +1148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.3806, y: 53.426678}
-  m_SizeDelta: {x: 711.2737, y: 1235.3381}
+  m_AnchoredPosition: {x: 0, y: 53}
+  m_SizeDelta: {x: 811, y: 1235}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &91685945
 MonoBehaviour:
@@ -2542,8 +2542,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280569729
-  m_fontColor: {r: 0.5058824, g: 0.30980393, b: 0.14117648, a: 1}
+    rgba: 4285645567
+  m_fontColor: {r: 1, g: 0.7607844, b: 0.4431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3452,10 +3452,10 @@ RectTransform:
   m_Father: {fileID: 700730599}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -5000}
-  m_SizeDelta: {x: 960, y: 10000}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 10000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &411518960
 MonoBehaviour:
@@ -3577,8 +3577,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280569729
-  m_fontColor: {r: 0.5058824, g: 0.30980393, b: 0.14117648, a: 1}
+    rgba: 4285645567
+  m_fontColor: {r: 1, g: 0.7607844, b: 0.4431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3712,8 +3712,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278864293
-  m_fontColor: {r: 0.64705884, g: 0.28627452, b: 0.039215688, a: 1}
+    rgba: 4285645567
+  m_fontColor: {r: 1, g: 0.7607844, b: 0.4431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5031,7 +5031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 635467497}
   m_Layer: 5
-  m_Name: Arrow (1)
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15173,8 +15173,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280569729
-  m_fontColor: {r: 0.5058824, g: 0.30980393, b: 0.14117648, a: 1}
+    rgba: 4285645567
+  m_fontColor: {r: 1, g: 0.7607844, b: 0.4431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
