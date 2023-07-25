@@ -31,7 +31,7 @@ public class CharacterController : MonoBehaviour
             case FoodType.Chilli:
                 Routine.WaitAndCall(0.35f, () => {
                     characterVisual.EatChilly();
-                    AudioManager.Instance.Play(AudioManager.ICE_CREAM_COLLECT);
+                    AudioManager.Instance.Play(AudioManager.ANGRY_CAT);
                 });
                 if (!ElixirHandler.IsActive)
                     GamePlayManager.Instance.TakeDamage(1);

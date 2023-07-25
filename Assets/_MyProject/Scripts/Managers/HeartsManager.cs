@@ -11,7 +11,7 @@ public class HeartsManager : MonoBehaviour
     private float counter;
 
     public int SecondsLeftForAnotherHeart => (int)counter;
-    public bool IsFull => DataManager.Instance.PlayerData.Hearts >= DataManager.Instance.GameData.MaxAmountOfHearts;
+    public bool IsFull  => DataManager.Instance.PlayerData.Hearts >= DataManager.Instance.GameData.MaxAmountOfHearts;
 
     private void Awake()
     {
@@ -35,16 +35,16 @@ public class HeartsManager : MonoBehaviour
     public void CalculateHarts()
     {
         int _secondsThatPassedSinceLastLogin = (int)(DateTime.UtcNow - DataManager.Instance.PlayerData.LastTimeClosedApp).TotalSeconds;
-        counter = amountOfSecondsForNextHeart;
+        counter =  amountOfSecondsForNextHeart;
         if (_secondsThatPassedSinceLastLogin > DataManager.Instance.PlayerData.SecondsLeftForAnotherHeart)
         {
             _secondsThatPassedSinceLastLogin -= DataManager.Instance.PlayerData.SecondsLeftForAnotherHeart;
             DataManager.Instance.PlayerData.ChangeHearts(1);
-            counter = _secondsThatPassedSinceLastLogin;
+            counter =  _secondsThatPassedSinceLastLogin;
         }
         else
         {
-            counter = DataManager.Instance.PlayerData.SecondsLeftForAnotherHeart - _secondsThatPassedSinceLastLogin;
+            counter =  DataManager.Instance.PlayerData.SecondsLeftForAnotherHeart - _secondsThatPassedSinceLastLogin;
         }
 
         while (counter >= amountOfSecondsForNextHeart)
@@ -57,7 +57,7 @@ public class HeartsManager : MonoBehaviour
             DataManager.Instance.PlayerData.ChangeHearts(1);
         }
 
-        counter = Mathf.Clamp(counter, 0, amountOfSecondsForNextHeart);
+        counter =  Mathf.Clamp(counter, 0, amountOfSecondsForNextHeart);
     }
 
     private void Update()

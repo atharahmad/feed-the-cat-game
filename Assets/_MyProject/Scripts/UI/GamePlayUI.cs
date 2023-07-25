@@ -61,7 +61,7 @@ public class GamePlayUI : MonoBehaviour
     }
     public void SetTimer(float _time)
     {
-        timerDisplay.text = _time.ToString();
+        timerDisplay.text = _time.ToString()+" Sec";
     }
 
 }
