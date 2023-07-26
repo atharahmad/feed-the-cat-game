@@ -75,10 +75,8 @@ public class MoreLivesDisplay : MonoBehaviour
             return;
         }
 
-        TimeSpan _time = new TimeSpan(0,0,HeartsManager.Instance.SecondsLeftForAnotherHeart);
-        string _hours = _time.Hours < 10 ? "0" + _time.Hours : _time.Hours.ToString();
-        string _minutes = _time.Minutes < 10 ? "0" + _time.Minutes : _time.Minutes.ToString();
-        string _seconds = _time.Seconds < 10 ? "0" + _time.Seconds : _time.Seconds.ToString(); 
-        timerDisplay.text = $"{_hours}:{_minutes}:{_seconds}";
+        int _secondsForNext = HeartsManager.Instance.SecondsLeftForAnotherHeart;
+        TimeSpan _timeForNextHeart = new TimeSpan(0, 0, _secondsForNext);
+        timerDisplay.text = _timeForNextHeart.TotalMinutes > 1 ? $"{Convert.ToInt32(_timeForNextHeart.TotalMinutes)}m:{Convert.ToInt32(_timeForNextHeart.Seconds)}s" : $"{Convert.ToInt32(_timeForNextHeart.Seconds)}s";
     }
 }
