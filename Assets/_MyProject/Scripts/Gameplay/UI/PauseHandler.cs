@@ -36,11 +36,11 @@ public class PauseHandler : MonoBehaviour
 
     private void Restart()
     {
-        SceneManager.LoadGamePlay();
+        SceneController.LoadGamePlay();
     }
 
     private void MainMenu()
     {
-        SceneManager.LoadMainMenu();
+        SceneController.LoadMainMenu();
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SceneManager
+public class SceneController
 {
     private const string MAIN_MENU = "MainMenu";
     private const string GAMEPLAY = "GamePlay";

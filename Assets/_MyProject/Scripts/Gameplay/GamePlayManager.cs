@@ -47,7 +47,7 @@ public class GamePlayManager : MonoBehaviour
 
         if (!DataManager.Instance.PlayerData.ReduceHearts())
         {
-            SceneManager.LoadMainMenu();
+            SceneController.LoadMainMenu();
             UIManager.Instance.OkDialog.Show("You are out of Hearts!");
             return;
         }

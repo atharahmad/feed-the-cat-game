@@ -127,7 +127,7 @@ public class AccountManager : MonoBehaviour
     {
         DataManager.Instance.SetGameData(_data);
         HeartsManager.Instance.Init();
-        SceneManager.LoadMainMenu();
+        SceneController.LoadMainMenu();
     }
 
     private void LoginFailed(string _reason)

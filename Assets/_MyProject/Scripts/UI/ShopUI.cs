@@ -16,7 +16,7 @@ public class ShopUI : MonoBehaviour
 
     private void ShowMainMenu()
     {
-        SceneManager.LoadMainMenu();
+        SceneController.LoadMainMenu();
     }
 
 }

@@ -27,6 +27,24 @@ public class FoodController : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, UnityEngine.Random.Range(0, 360));
         speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
         fall = true;
+        if (type == FoodType.IceCream)
+        {
+            if (PlayerPrefs.GetInt("icecreamtutorial", -1) == -1)
+            {
+                StartCoroutine(Tutorial.instance.ShowInstruction(gameObject, "Eat IceCream to get points"));
+                PlayerPrefs.SetInt("icecreamtutorial", 1);
+                transform.position = new Vector3(Screen.width / 2f, transform.position.y, transform.position.z);
+            }
+
+        }else if (type == FoodType.Chilli)
+        {
+            if (PlayerPrefs.GetInt("chillitutorial", -1) == -1)
+            {
+                StartCoroutine(Tutorial.instance.ShowInstruction(gameObject, "Avoid Chillies"));
+                PlayerPrefs.SetInt("chillitutorial", 1);
+                transform.position = new Vector3(Screen.width / 2f, transform.position.y, transform.position.z);
+            }
+        }
     }
 
     protected virtual void Update()

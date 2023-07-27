@@ -33,7 +33,7 @@ public class LeaderBoardUI : MonoBehaviour
 
     private void ShowMainMenu()
     {
-        SceneManager.LoadMainMenu();
+        SceneController.LoadMainMenu();
     }
 
     private void Start()

@@ -26,23 +26,23 @@ public class BottomHud : MonoBehaviour
 
     private void ShowMainMenu()
     {
-        SceneManager.LoadMainMenu();
+        SceneController.LoadMainMenu();
     }
 
     private void ShowCats()
     {
         Debug.Log("Should load cats");
-        SceneManager.LoadCats();
+        SceneController.LoadCats();
     }
     
     private void ShowShop()
     {
-        SceneManager.LoadShop();
+        SceneController.LoadShop();
     }
     
     private void ShowLeaderboard()
     {
-        SceneManager.LoadLeaderBoard();
+        SceneController.LoadLeaderBoard();
     }
     
     

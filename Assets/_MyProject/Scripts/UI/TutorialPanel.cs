@@ -79,6 +79,6 @@ public class TutorialPanel : MonoBehaviour
     {
         AccountManager.isNewAccount = false;
         CatSO.SelectedCat = CatSO.Get(DataManager.Instance.PlayerData.SelectedCat);
-        SceneManager.LoadGamePlay();
+        SceneController.LoadGamePlay();
     }
 }

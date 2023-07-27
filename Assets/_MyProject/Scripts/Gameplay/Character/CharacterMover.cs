@@ -37,6 +37,8 @@ public class CharacterMover : MonoBehaviour, IPointerUpHandler, IPointerDownHand
 
     public void OnPointerDown(PointerEventData _eventData)
     {
+        if (Tutorial.instance.hintPanel.gameObject.activeInHierarchy)
+            Tutorial.instance.Toggle(false);
         GamePlayManager.input.OnInputDown();
         inputting = true;
     }

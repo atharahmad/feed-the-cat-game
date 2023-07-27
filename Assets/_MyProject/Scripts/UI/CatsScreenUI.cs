@@ -17,6 +17,6 @@ public class CatsScreenUI : MonoBehaviour
 
     void Close()
     {
-        SceneManager.LoadMainMenu();
+        SceneController.LoadMainMenu();
     }
 }

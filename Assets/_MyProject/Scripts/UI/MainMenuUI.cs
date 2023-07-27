@@ -57,12 +57,12 @@ public class MainMenuUI : MonoBehaviour
         }
         AudioManager.Instance.Play(AudioManager.CAT_SELECT);
         CatSO.SelectedCat = CatSO.Get(DataManager.Instance.PlayerData.SelectedCat);
-        SceneManager.LoadGamePlay();
+        SceneController.LoadGamePlay();
     }
 
     private void ShowShop()
     {
-        SceneManager.LoadShop();
+        SceneController.LoadShop();
     }
 
   

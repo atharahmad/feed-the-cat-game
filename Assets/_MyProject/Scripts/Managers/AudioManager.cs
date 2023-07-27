@@ -46,7 +46,7 @@ public class AudioManager : MonoBehaviour
 
     private void ToggleMusic()
     {
-        if (SceneManager.IsDataCollectorScene)
+        if (SceneController.IsDataCollectorScene)
         {
             return;
         }

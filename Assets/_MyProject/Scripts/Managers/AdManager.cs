@@ -162,7 +162,7 @@ public class AdManager : MonoBehaviour
         }
         else
         {
-            if (!SceneManager.IsDataCollectorScene)
+            if (!SceneController.IsDataCollectorScene)
             {
                 message = "Ad is not ready yet, try again later";
             }
@@ -183,7 +183,7 @@ public class AdManager : MonoBehaviour
         }
         else
         {
-            if (!SceneManager.IsDataCollectorScene)
+            if (!SceneController.IsDataCollectorScene)
             {
                 message = "Ad is not ready yet, try again later";
             }
@@ -197,7 +197,7 @@ public class AdManager : MonoBehaviour
 
     private void HandleRewardedAdFailedToLoad(object _sender, AdFailedToLoadEventArgs _args)
     {
-        if (!SceneManager.IsDataCollectorScene)
+        if (!SceneController.IsDataCollectorScene)
         {
             message = "Ad failed to load, please try again later.";
         }
@@ -210,7 +210,7 @@ public class AdManager : MonoBehaviour
 
     private void HandleRewardedAdFailedToShow(object _sender, AdErrorEventArgs _args)
     {
-        if (!SceneManager.IsDataCollectorScene)
+        if (!SceneController.IsDataCollectorScene)
         {
             message = "Ad failed to show, please try again later.";
         }
@@ -233,7 +233,7 @@ public class AdManager : MonoBehaviour
 
     private void HandleInterstitialAdFailedToLoad(object _sender, AdFailedToLoadEventArgs _args)
     {
-        if (!SceneManager.IsDataCollectorScene)
+        if (!SceneController.IsDataCollectorScene)
         {
             message = "Ad failed to load, please try again later.";
         }
@@ -246,7 +246,7 @@ public class AdManager : MonoBehaviour
 
     private void HandleInterstitialAdFailedToShow(object _sender, AdErrorEventArgs _args)
     {
-        if (!SceneManager.IsDataCollectorScene)
+        if (!SceneController.IsDataCollectorScene)
         {
             message = "Ad failed to show, please try again later.";
         }

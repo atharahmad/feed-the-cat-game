@@ -47,11 +47,11 @@ public class LoseHandler : MonoBehaviour
 
     private void Replay()
     {
-        SceneManager.LoadGamePlay();
+        SceneController.LoadGamePlay();
     }
 
     private void MainMenu()
     {
-        SceneManager.LoadMainMenu();
+        SceneController.LoadMainMenu();
     }
 }
