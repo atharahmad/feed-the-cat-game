@@ -5131,7 +5131,7 @@ GameObject:
   - component: {fileID: 738086866}
   - component: {fileID: 738086865}
   m_Layer: 5
-  m_Name: tutorial mask
+  m_Name: TutorialMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
