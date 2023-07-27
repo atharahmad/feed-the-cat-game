@@ -33,7 +33,7 @@ public class FoodController : MonoBehaviour
         if (type == FoodType.IceCream && PlayerPrefs.GetInt("icecreamtutorial", -1) == -1)
         {
             transform.position = new Vector3(Screen.width / 2f, transform.position.y, transform.position.z);
-            StartCoroutine(Tutorial.instance.ShowInstruction(gameObject, "Eat IceCream to get points"));
+            StartCoroutine(Tutorial.instance.ShowInstruction(gameObject, "Eat IceCream To Get Points"));
             PlayerPrefs.SetInt("icecreamtutorial", 1);
         }
         else if (type == FoodType.Chilli && PlayerPrefs.GetInt("chillitutorial", -1) == -1)
