@@ -13,6 +13,9 @@ public class CharacterMover : MonoBehaviour, IPointerUpHandler, IPointerDownHand
     private float maxLimit;
 
     [SerializeField] private Transform playerHolder;
+
+    public static CharacterMover Instance;
+    private void Awake() => Instance = this;
     private void Start()
     {
         minLimit = Screen.width / 12f;
