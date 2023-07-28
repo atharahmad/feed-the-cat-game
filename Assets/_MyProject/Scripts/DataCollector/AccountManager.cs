@@ -1,5 +1,6 @@
 using Firebase.Auth;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 
 public class AccountManager : MonoBehaviour
@@ -13,6 +14,8 @@ public class AccountManager : MonoBehaviour
     [SerializeField] private Button loginWithGoogleButton;
     [SerializeField] private Button loginAsGuestButton;
     [SerializeField] private PlayerNamePanel playerNamePanel;
+    [SerializeField] private Image loadingBar;
+    
     
     private void OnEnable()
     {
@@ -155,9 +158,23 @@ public class AccountManager : MonoBehaviour
 
     void ManageButtons(bool _status)
     {
-        loginAsGuestButton.interactable = _status;
-        loginWithAppleButton.interactable = _status;
-        loginWithFacebookButton.interactable = _status;
-        loginWithGoogleButton.interactable = _status;
+        loginAsGuestButton.gameObject.SetActive(_status);// = _status;
+        loginWithAppleButton.gameObject.SetActive(_status);
+        loginWithFacebookButton.gameObject.SetActive(_status);
+        loginWithGoogleButton.gameObject.SetActive(_status);
+        loadingBar.transform.parent.gameObject.SetActive(!_status);
+        if (!_status)
+            StartCoroutine(Load());
+
+    }
+    public IEnumerator Load()
+    {
+        loadingBar.fillAmount = 0;
+        while (loadingBar.fillAmount < .98f)
+        {
+            if (SceneController.loadingScene != null)
+                loadingBar.fillAmount = SceneController.loadingScene.progress;
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

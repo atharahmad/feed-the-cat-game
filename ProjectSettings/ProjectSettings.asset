@@ -50,7 +50,7 @@ PlayerSettings:
   m_ActiveColorSpace: 0
   m_SpriteBatchVertexThreshold: 300
   m_MTRendering: 1
-  mipStripping: 0
+  mipStripping: 1
   numberOfMipsStripped: 0
   numberOfMipsStrippedPerMipmapLimitGroup: {}
   m_StackTraceTypes: 010000000100000001000000010000000100000001000000
@@ -256,7 +256,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: D:/UnityWorkspace/FeedTheCat/Keystore/user.keystore
+  AndroidKeystoreName: '{inproject}: Keystore/user.keystore'
   AndroidKeyaliasName: feedthecat
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidBuildApkPerCpuArchitecture: 0

@@ -6,6 +6,7 @@ public class FoodIceCream : FoodController
     [SerializeField] private ValueDisplay valueDisplayPrefab;
     [SerializeField] private IceCreamSO[] iceCreams;
     [SerializeField] private Image imageDisplay;
+    [SerializeField] private TrailRenderer trail;
     private IceCreamSO iceCream;
 
 
@@ -19,6 +20,8 @@ public class FoodIceCream : FoodController
     public override void Setup(bool _randomRotation = true)
     {
         base.Setup(_randomRotation);
+        Debug.Log(transform.childCount);
+        trail.sortingLayerID = LayerMask.NameToLayer("trail");
         iceCream = iceCreams[Random.Range(0, iceCreams.Length)];
         imageDisplay.sprite = iceCream.Whole;
         imageDisplay.SetNativeSize();

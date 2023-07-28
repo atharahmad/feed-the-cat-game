@@ -2,20 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class ResumeHandler : MonoBehaviour
 {
 
     public static ResumeHandler Instance;
-    [SerializeField] private Image display;
+    [SerializeField] private TextMeshProUGUI display;
     [SerializeField] private GameObject holder;
-    [SerializeField] private List<SpriteArray> resumeTexts;
-
-    private Sprite[] selectedSprites;
-
+    public Color[] gradiantsColors;
     private void Awake()
     {
-        selectedSprites = resumeTexts[2].Sprites;
         Instance = this;
     }
 
@@ -27,11 +23,18 @@ public class ResumeHandler : MonoBehaviour
 
     private IEnumerator ResumeRoutine()
     {
+        int i = Random.Range(0, gradiantsColors.Length / 2);
+        VertexGradient gradiant = new VertexGradient(gradiantsColors[i*2], gradiantsColors[i*2 ], gradiantsColors[i * 2 + 1], gradiantsColors[i * 2 + 1]);
+        
+        
+        display.colorGradient = gradiant;
         holder.SetActive(true);
         for (int _i = 0; _i <= 3; _i++)
         {
-            display.sprite = selectedSprites[_i];
-            display.SetNativeSize();
+            if (_i == 3)
+                display.text = "Go!";
+            else
+                display.text = (3 - _i).ToString();
             yield return new WaitForSeconds(1);
         }
 

@@ -9,7 +9,7 @@ public class SceneController
     private const string SHOP = "Shop";
     private const string CATS = "CatsScreen";
     public static bool IsDataCollectorScene => UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == DATA_COLLECTOR;
-
+    public static AsyncOperation loadingScene;
     public static void LoadMainMenu()
     {
         LoadScene(MAIN_MENU);
@@ -43,6 +43,6 @@ public class SceneController
 
     private static void LoadScene(string _key)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(_key);
+        loadingScene = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(_key);
     }
 }
