@@ -43,7 +43,7 @@ public class PowerWordsDisplay : MonoBehaviour
 
     private void IncreaseStrike()
     {
-        strike++;
+        strike ++;
         ShowWord();
     }
 
@@ -81,6 +81,7 @@ public class PowerWordsDisplay : MonoBehaviour
 
     private IEnumerator ShowWord(int strike, string _word)
     {
+        strike %= gradiantsColors.Length;
         VertexGradient gradiant = new VertexGradient(gradiantsColors[strike], gradiantsColors[strike], gradiantsColors2[strike], gradiantsColors2[strike]);
         imageDisplay.colorGradient = gradiant;
         imageDisplay.text = _word;

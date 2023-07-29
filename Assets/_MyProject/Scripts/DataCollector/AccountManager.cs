@@ -14,7 +14,6 @@ public class AccountManager : MonoBehaviour
     [SerializeField] private Button loginWithGoogleButton;
     [SerializeField] private Button loginAsGuestButton;
     [SerializeField] private PlayerNamePanel playerNamePanel;
-    [SerializeField] private Image loadingBar;
     
     
     private void OnEnable()
@@ -158,19 +157,15 @@ public class AccountManager : MonoBehaviour
 
     void ManageButtons(bool _status)
     {
-        loginAsGuestButton.gameObject.SetActive(_status);// = _status;
-        loginWithAppleButton.gameObject.SetActive(_status);
-        loginWithFacebookButton.gameObject.SetActive(_status);
-        loginWithGoogleButton.gameObject.SetActive(_status);
-        loadingBar.transform.parent.gameObject.SetActive(!_status);
-        Routine.LerpConstant(loadingBar.fillAmount, 1, 0.025f, (fill) => loadingBar.fillAmount = fill, () => loadingBar.fillAmount = 1);
-        //if (!_status)
-        //    StartCoroutine(Load());
+        loginAsGuestButton.interactable= _status;
+        loginWithAppleButton.interactable = _status;
+        loginWithFacebookButton.interactable = _status;
+        loginWithGoogleButton.interactable = _status;
 
     }
-    public IEnumerator Load()
-    {
-        yield return new WaitUntil (() => SceneController.loadingScene.progress == 1);
-        Routine.LerpConstant(loadingBar.fillAmount, 1, 0.02f, (fill) => loadingBar.fillAmount = fill, () => loadingBar.fillAmount = 1);
-    }
+    //public IEnumerator Load()
+    //{
+    //    yield return new WaitUntil (() => SceneController.loadingScene.progress == 1);
+    //    Routine.LerpConstant(loadingBar.fillAmount, 1, 0.02f, (fill) => loadingBar.fillAmount = fill, () => loadingBar.fillAmount = 1);
+    //}
 }
