@@ -14,8 +14,6 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private MoreLivesDisplay moreLivesDisplay;
     [SerializeField] private KeysPanel keysDisplay;
     [SerializeField] private SettingsUI settingsUI;
-    [SerializeField] private GameObject loadingPanel;
-    [SerializeField] private Image loadingBar;
 
     private void OnEnable()
     {
@@ -71,9 +69,7 @@ public class MainMenuUI : MonoBehaviour
   
 
     private void Start()
-    {
-        Routine.LerpConstant(loadingBar.fillAmount, 1, 0.02f, (fill) => loadingBar.fillAmount = fill, () => { loadingBar.fillAmount = 1; loadingPanel.SetActive(false); });
-        AudioManager.Instance.PlayBackgroundMusic(AudioManager.MAIN_THEME_SONG);
+    { AudioManager.Instance.PlayBackgroundMusic(AudioManager.MAIN_THEME_SONG);
         var _levelHolderTransform = levelHolder.transform;
         _levelHolderTransform.localPosition = new Vector3(_levelHolderTransform.localPosition.x,10000, levelHolder.localPosition.z);
     }
