@@ -163,18 +163,14 @@ public class AccountManager : MonoBehaviour
         loginWithFacebookButton.gameObject.SetActive(_status);
         loginWithGoogleButton.gameObject.SetActive(_status);
         loadingBar.transform.parent.gameObject.SetActive(!_status);
-        if (!_status)
-            StartCoroutine(Load());
+        Routine.LerpConstant(loadingBar.fillAmount, 1, 0.025f, (fill) => loadingBar.fillAmount = fill, () => loadingBar.fillAmount = 1);
+        //if (!_status)
+        //    StartCoroutine(Load());
 
     }
     public IEnumerator Load()
     {
-        loadingBar.fillAmount = 0;
-        while (loadingBar.fillAmount < .98f)
-        {
-            if (SceneController.loadingScene != null)
-                loadingBar.fillAmount = SceneController.loadingScene.progress;
-            yield return new WaitForEndOfFrame();
-        }
+        yield return new WaitUntil (() => SceneController.loadingScene.progress == 1);
+        Routine.LerpConstant(loadingBar.fillAmount, 1, 0.02f, (fill) => loadingBar.fillAmount = fill, () => loadingBar.fillAmount = 1);
     }
 }

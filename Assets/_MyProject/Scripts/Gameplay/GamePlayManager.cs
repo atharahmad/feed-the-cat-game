@@ -42,7 +42,6 @@ public class GamePlayManager : MonoBehaviour
     {
         TimeScale = 1;
         input = new InputStandalone();
-        Routine.Initialize(this);
         maxAmountOfLives = DataManager.Instance.GameData.MaxAmountOfHearts;
 
         if (!DataManager.Instance.PlayerData.ReduceHearts())

@@ -50,12 +50,12 @@ public class UltimateBooster : MonoBehaviour
 
     private void UpdateVisual()
     {
-        if (eatenIceCreams==0)
-        {
-            foreground.fillAmount = 0;
-            return;
-        }
-
-        foreground.fillAmount = (float)eatenIceCreams / amountOfIceCreamsNeeded;
+        //if (eatenIceCreams==0)
+        //{
+        //    foreground.fillAmount = 0;
+        //    return;
+        //}
+        //foreground.fillAmount = (float)eatenIceCreams / amountOfIceCreamsNeeded;
+        Routine.LerpConstant(foreground.fillAmount, (float)eatenIceCreams / amountOfIceCreamsNeeded, 0.01f, (fill) => foreground.fillAmount = fill, () => foreground.fillAmount = (float)eatenIceCreams / amountOfIceCreamsNeeded);
     }
 }

@@ -37,6 +37,7 @@ public class DataManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            Routine.Initialize(this);
             DontDestroyOnLoad(gameObject);
         }
         else

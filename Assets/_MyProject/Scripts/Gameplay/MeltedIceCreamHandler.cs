@@ -42,7 +42,7 @@ public class MeltedIceCreamHandler : MonoBehaviour
         //{
         //    return;
         //}
-            Debug.Log("Melt size" + size);
+        //Debug.Log("Melt size" + size);
         size += meltingSpeed;
         //UpdateVisual();
 

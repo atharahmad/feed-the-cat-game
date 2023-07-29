@@ -17,6 +17,7 @@ public class PowerWordsDisplay : MonoBehaviour
     private int strike;
 
     public Color[] gradiantsColors;
+    public Color[] gradiantsColors2;
     private void Awake()
     {
         //selectedSprites = sprites[Random.Range(0, sprites.Count)].sprites;
@@ -73,17 +74,14 @@ public class PowerWordsDisplay : MonoBehaviour
 
         if (word != null)
         {
-            StartCoroutine(ShowWord(word));
+            StartCoroutine(ShowWord(strike, word));
         }
     }
 
 
-    private IEnumerator ShowWord(string _word)
+    private IEnumerator ShowWord(int strike, string _word)
     {
-        int i = Random.Range(0, gradiantsColors.Length / 2);
-        VertexGradient gradiant = new VertexGradient(gradiantsColors[i * 2], gradiantsColors[i * 2], gradiantsColors[i * 2 + 1], gradiantsColors[i * 2 + 1]);
-
-
+        VertexGradient gradiant = new VertexGradient(gradiantsColors[strike], gradiantsColors[strike], gradiantsColors2[strike], gradiantsColors2[strike]);
         imageDisplay.colorGradient = gradiant;
         imageDisplay.text = _word;
         imageDisplay.gameObject.SetActive(true);
