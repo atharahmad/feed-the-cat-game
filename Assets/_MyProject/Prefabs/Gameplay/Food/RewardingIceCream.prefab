@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeed: 350
-  maxSpeed: 530
+  maxSpeed: 730
   score: 0
   type: 2
   isInMouth: 0

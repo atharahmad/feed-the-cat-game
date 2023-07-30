@@ -10,6 +10,7 @@ public class GamePlayManager : MonoBehaviour
     private int currentAmountOfLives;
 
     public int Multiplier { get; private set; } = 1;
+    public Transform foodHolder;
 
     public static Action UpdatedScore;
     public static Action UpdatedCurrentAmountOfLives;

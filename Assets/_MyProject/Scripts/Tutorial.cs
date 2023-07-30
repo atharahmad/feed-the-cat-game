@@ -21,10 +21,9 @@ public class Tutorial : MonoBehaviour
             hintPanel.position = hintsObjects[0].position;
             hintPanel.gameObject.SetActive(true);
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);
-            //Time.timeScale = 0;
         }
         if (FoodSpawner.Instance && PlayerPrefs.GetInt("icecreamtutorial", -1) == -1)
-            GamePlayManager.Instance.Pause();
+            Toggle(true);
     }
     private void Update()
     {
@@ -42,14 +41,16 @@ public class Tutorial : MonoBehaviour
         PlayerPrefs.SetInt(msg, 1);
         hintPanel.position = obj.transform.position;
         GamePlayManager.Instance.Pause();
-        hintPanel.gameObject.SetActive(true);
-        hint.gameObject.SetActive(true);
+        Toggle(true);
         hint.text = msg;
     }
     public void Toggle(bool _val)
     {
-        hintPanel.gameObject.SetActive(false);
-        hint.gameObject.SetActive(false);
+        hintPanel.gameObject.SetActive(_val);
+        hint.gameObject.SetActive(_val);
+        for (int i = 0; i < GamePlayManager.Instance.foodHolder.childCount; i++)
+            if (GamePlayManager.Instance.foodHolder.GetChild(i).GetComponent<FoodController>())
+                GamePlayManager.Instance.foodHolder.GetChild(i).GetComponent<FoodController>().enabled = !_val;
         if (_val)
             GamePlayManager.Instance.Pause();
         else

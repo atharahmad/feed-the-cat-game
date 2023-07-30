@@ -12,7 +12,6 @@ public class FoodController : MonoBehaviour
     [SerializeField] private float minSpeed;
     [SerializeField] private float maxSpeed;
     [SerializeField] private int score;
-
     [SerializeField] private FoodType type;
 
     private bool fall;
@@ -35,14 +34,12 @@ public class FoodController : MonoBehaviour
             transform.position = new Vector3(Screen.width / 2f, transform.position.y, transform.position.z);
             StartCoroutine(Tutorial.Instance.ShowInstruction(gameObject, "Eat IceCream To Get Points"));
             PlayerPrefs.SetInt("icecreamtutorial", 1);
-            this.enabled = false;
         }
         else if (type == FoodType.Chilli && PlayerPrefs.GetInt("chillitutorial", -1) == -1)
         {
             transform.position = new Vector3(Screen.width / 2f, transform.position.y, transform.position.z);
             StartCoroutine(Tutorial.Instance.ShowInstruction(gameObject, "Avoid Chillies"));
             PlayerPrefs.SetInt("chillitutorial", 1);
-            this.enabled = false;
         }
     }
 
