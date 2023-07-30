@@ -41,10 +41,10 @@ public class Tutorial : MonoBehaviour
         CharacterMover.Instance.OnPointerUp(null);
         PlayerPrefs.SetInt(msg, 1);
         hintPanel.position = obj.transform.position;
+        GamePlayManager.Instance.Pause();
         hintPanel.gameObject.SetActive(true);
         hint.gameObject.SetActive(true);
         hint.text = msg;
-
     }
     public void Toggle(bool _val)
     {
