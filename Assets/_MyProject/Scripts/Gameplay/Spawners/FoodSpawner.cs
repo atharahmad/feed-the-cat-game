@@ -21,10 +21,7 @@ public class FoodSpawner : MonoBehaviour
     private int spawnChilliAt;
     private int totalSpawnCounter;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
+    private void Awake() => Instance = this;
 
     private void Start()
     {

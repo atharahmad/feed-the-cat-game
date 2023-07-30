@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CoinsSpawner : MonoBehaviour
 {
+    public static CoinsSpawner Instance;
+
     [SerializeField] private FoodController prefab;
     [SerializeField] private Transform foodHolder;
 
@@ -10,13 +12,10 @@ public class CoinsSpawner : MonoBehaviour
     [SerializeField] private float maxCooldown;
 
     private float counter;
-    private Vector2 coinSize;
 
-    private void Start()
-    {
-        counter = initialCooldown;
-        coinSize = prefab.GetComponent<Collider2D>().bounds.size * 2f;
-    }
+    private void Awake() => Instance = this;
+
+    private void Start() => counter = initialCooldown;
 
     private void Update()
     {

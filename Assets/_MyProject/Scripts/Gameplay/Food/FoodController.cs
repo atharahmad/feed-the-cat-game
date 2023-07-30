@@ -29,18 +29,22 @@ public class FoodController : MonoBehaviour
         speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
         torque = UnityEngine.Random.Range(-100, 101);
         fall = true;
-        
+
         if (type == FoodType.IceCream && PlayerPrefs.GetInt("icecreamtutorial", -1) == -1)
         {
             transform.position = new Vector3(Screen.width / 2f, transform.position.y, transform.position.z);
             StartCoroutine(Tutorial.instance.ShowInstruction(gameObject, "Eat IceCream To Get Points"));
             PlayerPrefs.SetInt("icecreamtutorial", 1);
+            FoodSpawner.Instance.enabled = false;
+            this.enabled = false;
         }
         else if (type == FoodType.Chilli && PlayerPrefs.GetInt("chillitutorial", -1) == -1)
         {
             transform.position = new Vector3(Screen.width / 2f, transform.position.y, transform.position.z);
             StartCoroutine(Tutorial.instance.ShowInstruction(gameObject, "Avoid Chillies"));
             PlayerPrefs.SetInt("chillitutorial", 1);
+            FoodSpawner.Instance.enabled = false;
+            this.enabled = false;
         }
     }
 
@@ -59,7 +63,8 @@ public class FoodController : MonoBehaviour
         var _position = transform.position;
         _position = Vector3.MoveTowards(_position, isInMouth ? CharacterVisual.instance.mouthMask.position : _position + Vector3.down * 10, speed * Time.deltaTime * Screen.height / 2000f);
         transform.position = _position;
-        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + torque * Time.deltaTime);
+        if (type != FoodType.RewardingIceCream)
+            transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + torque * Time.deltaTime);
     }
 
     protected virtual bool AllowAutomaticEating()
