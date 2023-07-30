@@ -40,9 +40,8 @@ public class CharacterMover : MonoBehaviour, IPointerUpHandler, IPointerDownHand
 
     public void OnPointerDown(PointerEventData _eventData)
     {
-        if (Tutorial.instance.hintPanel.gameObject.activeInHierarchy) { 
-            Tutorial.instance.Toggle(false);
-            FoodSpawner.Instance.enabled = true;
+        if (Tutorial.Instance.hintPanel.gameObject.activeInHierarchy) { 
+            Tutorial.Instance.Toggle(false);
         }
         GamePlayManager.input.OnInputDown();
         inputting = true;

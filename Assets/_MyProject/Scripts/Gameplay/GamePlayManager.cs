@@ -72,6 +72,20 @@ public class GamePlayManager : MonoBehaviour
         }
     }
 
+    public void Pause ()
+    {
+        FoodSpawner.Instance.enabled = false;
+        CoinsSpawner.Instance.enabled = false;
+        RewardingIceCreamSpawner.Instance.enabled = false;
+    }
+
+    public void Play()
+    {
+        FoodSpawner.Instance.enabled = true;
+        CoinsSpawner.Instance.enabled = true;
+        RewardingIceCreamSpawner.Instance.enabled = true;
+    }
+
     public void Drown()
     {
         GameEnded?.Invoke(false);

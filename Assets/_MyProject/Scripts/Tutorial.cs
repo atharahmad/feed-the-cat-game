@@ -7,12 +7,15 @@ public class Tutorial : MonoBehaviour
 {
     public List<RectTransform> hintsObjects;
     public RectTransform hintPanel;
-    public static Tutorial instance;
     public TextMeshProUGUI hint;
+
+    public static Tutorial Instance;
+
+    private float scalingDir = .1f;
+    private void Awake() => Instance = this;
 
     void Start()
     {
-        instance = this;
         if (PlayerPrefs.GetInt(SceneManager.GetActiveScene().name, -1) == -1)
         {
             hintPanel.position = hintsObjects[0].position;
@@ -20,8 +23,9 @@ public class Tutorial : MonoBehaviour
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);
             //Time.timeScale = 0;
         }
+        if (FoodSpawner.Instance && PlayerPrefs.GetInt("icecreamtutorial", -1) == -1)
+            GamePlayManager.Instance.Pause();
     }
-    float scalingDir = .1f;
     private void Update()
     {
         if (hintPanel.transform.localScale.x > 1.02f)
@@ -31,20 +35,24 @@ public class Tutorial : MonoBehaviour
         hintPanel.transform.localScale += Vector3.one * Time.deltaTime * scalingDir;
     }
 
-    public IEnumerator ShowInstruction(GameObject obj,string msg)
+    public IEnumerator ShowInstruction(GameObject obj, string msg)
     {
         yield return new WaitUntil(() => obj.transform.position.y < Screen.height / 1.5f);
         CharacterMover.Instance.OnPointerUp(null);
         PlayerPrefs.SetInt(msg, 1);
         hintPanel.position = obj.transform.position;
-        hint.text = msg;
         hintPanel.gameObject.SetActive(true);
-        //Time.timeScale = 0;
+        hint.gameObject.SetActive(true);
+        hint.text = msg;
 
     }
     public void Toggle(bool _val)
     {
         hintPanel.gameObject.SetActive(false);
-        Time.timeScale = 1;
+        hint.gameObject.SetActive(false);
+        if (_val)
+            GamePlayManager.Instance.Pause();
+        else
+            GamePlayManager.Instance.Play();
     }
 }

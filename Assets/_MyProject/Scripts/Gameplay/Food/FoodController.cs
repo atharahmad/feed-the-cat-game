@@ -33,17 +33,15 @@ public class FoodController : MonoBehaviour
         if (type == FoodType.IceCream && PlayerPrefs.GetInt("icecreamtutorial", -1) == -1)
         {
             transform.position = new Vector3(Screen.width / 2f, transform.position.y, transform.position.z);
-            StartCoroutine(Tutorial.instance.ShowInstruction(gameObject, "Eat IceCream To Get Points"));
+            StartCoroutine(Tutorial.Instance.ShowInstruction(gameObject, "Eat IceCream To Get Points"));
             PlayerPrefs.SetInt("icecreamtutorial", 1);
-            FoodSpawner.Instance.enabled = false;
             this.enabled = false;
         }
         else if (type == FoodType.Chilli && PlayerPrefs.GetInt("chillitutorial", -1) == -1)
         {
             transform.position = new Vector3(Screen.width / 2f, transform.position.y, transform.position.z);
-            StartCoroutine(Tutorial.instance.ShowInstruction(gameObject, "Avoid Chillies"));
+            StartCoroutine(Tutorial.Instance.ShowInstruction(gameObject, "Avoid Chillies"));
             PlayerPrefs.SetInt("chillitutorial", 1);
-            FoodSpawner.Instance.enabled = false;
             this.enabled = false;
         }
     }

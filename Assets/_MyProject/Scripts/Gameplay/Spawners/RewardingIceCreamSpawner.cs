@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class RewardingIceCreamSpawner : MonoBehaviour
 {
+    public static RewardingIceCreamSpawner Instance;
+
     [SerializeField] private FoodController prefab;
     [SerializeField] private Transform foodHolder;
 
@@ -10,12 +12,12 @@ public class RewardingIceCreamSpawner : MonoBehaviour
     [SerializeField] private float maxCooldown;
 
     private float counter;
-    private Vector2 foodSize;
+
+    private void Awake() => Instance = this;
 
     private void Start()
     {
         counter = initialCooldown;
-        foodSize = prefab.GetComponent<Collider2D>().bounds.size * 2f;
     }
 
     private void Update()
