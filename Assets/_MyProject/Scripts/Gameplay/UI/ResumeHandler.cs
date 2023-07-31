@@ -23,8 +23,8 @@ public class ResumeHandler : MonoBehaviour
 
     private IEnumerator ResumeRoutine()
     {
-        int i = Random.Range(0, gradiantsColors.Length / 2);
-        VertexGradient gradiant = new VertexGradient(gradiantsColors[i*2], gradiantsColors[i*2 ], gradiantsColors[i * 2 + 1], gradiantsColors[i * 2 + 1]);
+        int i = 4;// Random.Range(0, gradiantsColors.Length / 2);
+        VertexGradient gradiant = new VertexGradient(gradiantsColors[i], gradiantsColors[i], gradiantsColors[i + 1], gradiantsColors[i + 1]);
         
         
         display.colorGradient = gradiant;

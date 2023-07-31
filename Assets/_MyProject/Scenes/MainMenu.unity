@@ -1594,7 +1594,7 @@ RectTransform:
   m_AnchorMin: {x: 0.24, y: 0.5}
   m_AnchorMax: {x: 0.92, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -73.2}
-  m_SizeDelta: {x: 0, y: 70}
+  m_SizeDelta: {x: 0, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &178300831
 MonoBehaviour:
@@ -5731,11 +5731,11 @@ RectTransform:
   m_Father: {fileID: 605920255685803082}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -9.4, y: 66.6}
-  m_SizeDelta: {x: 79.3, y: 75}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 12, y: -12}
+  m_SizeDelta: {x: 79.29999, y: 75}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &716124700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6547,7 +6547,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 4, y: 0.09996033}
-  m_SizeDelta: {x: -8, y: 64.5}
+  m_SizeDelta: {x: -8, y: 55}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &829238110
 MonoBehaviour:
@@ -14559,6 +14559,8 @@ MonoBehaviour:
   - {fileID: 1380210557}
   hintPanel: {fileID: 9337137}
   hint: {fileID: 0}
+  handGesture: {fileID: 0}
+  swipeSpeed: 0
 --- !u!1 &1905390570
 GameObject:
   m_ObjectHideFlags: 0

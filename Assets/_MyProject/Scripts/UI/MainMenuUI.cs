@@ -69,7 +69,8 @@ public class MainMenuUI : MonoBehaviour
   
 
     private void Start()
-    { AudioManager.Instance.PlayBackgroundMusic(AudioManager.MAIN_THEME_SONG);
+    { 
+        AudioManager.Instance.PlayBackgroundMusic(AudioManager.MAIN_THEME_SONG);
         var _levelHolderTransform = levelHolder.transform;
         _levelHolderTransform.localPosition = new Vector3(_levelHolderTransform.localPosition.x,10000, levelHolder.localPosition.z);
     }

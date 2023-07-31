@@ -21,7 +21,7 @@ public class FoodChillies : FoodController
 
         if (_collision.CompareTag("Split"))
         {
-
+            Debug.Log("Chiili splitted");
             if (!CanSplit)
             {
                 return;

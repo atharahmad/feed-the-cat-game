@@ -34,6 +34,8 @@ public class PlayerNamePanel : MonoBehaviour
             confirmButton.interactable = false;
             DataManager.Instance.CreateNewPlayer();
             DataManager.Instance.PlayerData.UserName = _name;
+            DataManager.Instance.PlayerData.PlaySound = true;
+            DataManager.Instance.PlayerData.PlayMusic = true;
             FirebaseManager.Instance.SaveEverything(SaveHandler);
         }
     }
