@@ -37,6 +37,7 @@ public class Tutorial : MonoBehaviour
     }
     IEnumerator SwipeAnimation()
     {
+        hint.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 150);
         handGesture.gameObject.SetActive(true);
         Vector2 left = (Vector2)handGesture.position + Vector2.left * 100;
         Vector2 right = (Vector2)handGesture.position + Vector2.right * 100;
@@ -66,6 +67,7 @@ public class Tutorial : MonoBehaviour
     public IEnumerator ShowInstruction(GameObject obj, string msg)
     {
         yield return new WaitUntil(() => obj.transform.position.y < Screen.height / 1.5f);
+        hint.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -150);
         CharacterMover.Instance.OnPointerUp(null);
         PlayerPrefs.SetInt(msg, 1);
         hintPanel.position = obj.transform.position;
