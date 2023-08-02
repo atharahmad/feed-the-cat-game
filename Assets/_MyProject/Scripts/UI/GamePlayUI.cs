@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 
@@ -10,12 +11,33 @@ public class GamePlayUI : MonoBehaviour
     [SerializeField] private ContinueHandler continueHandler;
     [SerializeField] private TextMeshProUGUI highScoreDisplay;
     [SerializeField] private TextMeshProUGUI timerDisplay;
-
+    [SerializeField] private GameObject levelPlay;
+    [SerializeField] private GameObject infinitePlay;
+    [SerializeField] List<Target> targetList;
+    public List<Sprite> skins;
+    public List<Target> targets;
+    int levelNo = -1;
     private void Awake()
     {
         Instance = this;
-    }
 
+        if (PlayerPrefs.GetInt("gametype") == 1)
+        {
+            infinitePlay.SetActive(false);
+            levelPlay.SetActive(true);
+            levelNo = PlayerPrefs.GetInt("levelno");
+            DesignLevel();
+        }
+    }
+    private void DesignLevel()
+    {
+        if (levelNo < 5)
+        {
+            int _val = 5 * (levelNo + 1);
+            targetList[0].Setup(Random.Range(0, 20), _val);
+            targets.Add(targetList[0]);
+        }
+    }
     private void OnEnable()
     {
         GamePlayManager.GameEnded += HandleGameEnded;

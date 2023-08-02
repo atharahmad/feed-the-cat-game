@@ -19,6 +19,10 @@ public class CharacterController : MonoBehaviour
         switch (_foodController.Type)
         {
             case FoodType.IceCream:
+                for(int i = 0; i < GamePlayUI.Instance.targets.Count; i++)
+                {
+                    GamePlayUI.Instance.targets[i].Check(_collision.GetComponent<Image>().sprite);
+                }
                 var _amountToAdd = _foodController.Score * GamePlayManager.Instance.Multiplier;
                 GamePlayManager.Instance.Score += _amountToAdd;
                 (_foodController as FoodIceCream)?.SpawnCoinText(_amountToAdd);
