@@ -21,7 +21,7 @@ public class Target : MonoBehaviour
         targetDisplay.text = targetVal.ToString();
         gameObject.SetActive(true);
     }
-    public void Check(Sprite _skin)
+    public void Decrease(Sprite _skin)
     {
         if (skin == _skin)
         {
@@ -29,8 +29,16 @@ public class Target : MonoBehaviour
             {
                 targetVal--;
                 targetDisplay.text = targetVal.ToString();
+                if (targetVal == 0)
+                    GamePlayUI.Instance.CheckLevelComplete();
             }
         }
-
+    }
+    public bool IsComplete()
+    {
+        if (targetVal > 0)
+            return false;
+        else
+            return true;
     }
 }

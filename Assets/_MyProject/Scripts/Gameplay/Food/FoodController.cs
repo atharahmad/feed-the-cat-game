@@ -25,7 +25,7 @@ public class FoodController : MonoBehaviour
     {
         if (_randomRotation)
             transform.eulerAngles = new Vector3(0, 0, UnityEngine.Random.Range(0, 360));
-        speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
+        speed = UnityEngine.Random.Range(minSpeed, maxSpeed) * FoodSpawner.Instance.speedMultiplier;
         torque = UnityEngine.Random.Range(-100, 101);
         fall = true;
 

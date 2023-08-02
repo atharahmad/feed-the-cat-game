@@ -1,8 +1,10 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
-
+using TMPro;
 public class MainMenuUI : MonoBehaviour
 {
+    public static MainMenuUI instance;
     [SerializeField] private Button playlevelButton;
     [SerializeField] private Button playButton;
     [SerializeField] private Transform levelHolder;
@@ -14,6 +16,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private MoreLivesDisplay moreLivesDisplay;
     [SerializeField] private KeysPanel keysDisplay;
     [SerializeField] private SettingsUI settingsUI;
+    [SerializeField] private TextMeshProUGUI levelDisplay;
     private int levelNo;
     private void OnEnable()
     {
@@ -72,7 +75,20 @@ public class MainMenuUI : MonoBehaviour
         AudioManager.Instance.Play(AudioManager.CAT_SELECT);
         CatSO.SelectedCat = CatSO.Get(DataManager.Instance.PlayerData.SelectedCat);
         PlayerPrefs.SetInt("gametype", 1);
-        PlayerPrefs.SetInt("levelno", levelNo);
+        PlayerPrefs.SetInt("currentlevel", levelNo);
+        SceneController.LoadGamePlay();
+    }
+    public void PlayLevel(int _val)
+    {
+        if (DataManager.Instance.PlayerData.Hearts <= 0)
+        {
+            UIManager.Instance.OkDialog.Show("You don’t have enough hearts!");
+            return;
+        }
+        AudioManager.Instance.Play(AudioManager.CAT_SELECT);
+        CatSO.SelectedCat = CatSO.Get(DataManager.Instance.PlayerData.SelectedCat);
+        PlayerPrefs.SetInt("gametype", 1);
+        PlayerPrefs.SetInt("currentlevel", _val);
         SceneController.LoadGamePlay();
     }
     private void ShowShop()
@@ -85,8 +101,13 @@ public class MainMenuUI : MonoBehaviour
     private void Start()
     {
         levelNo = PlayerPrefs.GetInt("levelno");
+        levelDisplay.text = (levelNo + 1).ToString();
         AudioManager.Instance.PlayBackgroundMusic(AudioManager.MAIN_THEME_SONG);
         var _levelHolderTransform = levelHolder.transform;
         _levelHolderTransform.localPosition = new Vector3(_levelHolderTransform.localPosition.x,10000, levelHolder.localPosition.z);
+    }
+    private void Awake()
+    {
+        instance = this;
     }
 }

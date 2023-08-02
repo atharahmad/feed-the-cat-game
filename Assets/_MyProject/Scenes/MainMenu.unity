@@ -14502,6 +14502,7 @@ MonoBehaviour:
   moreLivesDisplay: {fileID: 487595339}
   keysDisplay: {fileID: 1578507056}
   settingsUI: {fileID: 573141269}
+  levelDisplay: {fileID: 739840770}
 --- !u!114 &1897215515
 MonoBehaviour:
   m_ObjectHideFlags: 0

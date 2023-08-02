@@ -25,17 +25,53 @@ public class GamePlayUI : MonoBehaviour
         {
             infinitePlay.SetActive(false);
             levelPlay.SetActive(true);
-            levelNo = PlayerPrefs.GetInt("levelno");
+            levelNo = PlayerPrefs.GetInt("currentlevel");
             DesignLevel();
         }
     }
     private void DesignLevel()
     {
-        if (levelNo < 5)
+        targets.Clear();
+        Level _level=null;
+        if (IO.DeserializeFile<Level>(levelNo.ToString()+".txt", ref _level))
         {
-            int _val = 5 * (levelNo + 1);
-            targetList[0].Setup(Random.Range(0, 20), _val);
-            targets.Add(targetList[0]);
+            for(int i = 0; i < _level.skinIndexes.Length; i++)
+            {
+                targetList[i].Setup(_level.skinIndexes[i], _level.targetValues[i]);
+                targets.Add(targetList[i]);
+            }
+        }
+        else
+        {
+            int noOfTargets = 0;
+            _level = new Level();
+            if (levelNo < 5)
+            {
+                noOfTargets = 1;
+            }else if(levelNo>=5 && levelNo < 10)
+            {
+                noOfTargets = 2;
+            }
+            else if (levelNo >= 10 && levelNo < 20)
+            {
+                noOfTargets = 3;
+            }
+            else if (levelNo >= 20 )
+            {
+                noOfTargets = 4;
+            }
+            _level.skinIndexes = new int[noOfTargets];
+            _level.targetValues = new int[noOfTargets];
+            for (int i = 0; i < noOfTargets; i++)
+            {
+                int _val = 3 * (levelNo + 1);
+                int index = Random.Range(0, 20);
+                targetList[i].Setup(index, _val);
+                targets.Add(targetList[i]);
+                _level.skinIndexes[i] = index;
+                _level.targetValues[i] = _val;
+            }
+            IO.SerializeFile<Level>(levelNo.ToString() + ".txt", _level);
         }
     }
     private void OnEnable()
@@ -84,6 +120,28 @@ public class GamePlayUI : MonoBehaviour
     public void SetTimer(float _time)
     {
         timerDisplay.text = _time.ToString()+" Sec";
+    }
+    public void CheckLevelComplete()
+    {
+        bool leveComplete = true;
+        for(int i = 0; i < targets.Count; i++)
+        {
+            if (!targets[i].IsComplete())
+            {
+                leveComplete = false;
+                break;
+            }
+        }
+        if (leveComplete)
+        {
+            if (levelNo == PlayerPrefs.GetInt("levelno"))
+            {
+                levelNo++;
+                PlayerPrefs.SetInt("levelno", levelNo);
+            }
+        }
+        AudioManager.Instance.Play(AudioManager.VICTORY);
+        Routine.WaitAndCall(1,()=> SceneController.LoadMainMenu());
     }
 
 }

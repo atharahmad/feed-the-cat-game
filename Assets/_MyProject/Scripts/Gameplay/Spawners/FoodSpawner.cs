@@ -20,7 +20,8 @@ public class FoodSpawner : MonoBehaviour
     private int spawnedCounter;
     private int spawnChilliAt;
     private int totalSpawnCounter;
-
+    public float speedMultiplier;
+    float time = 0;
     private void Awake() => Instance = this;
 
     private void Start()
@@ -29,6 +30,8 @@ public class FoodSpawner : MonoBehaviour
         spawnTimerCounter = 3;
         spawnedCounter = 0;
         spawnChilliAt = 3;
+        speedMultiplier = 1;
+        time = Time.time;
     }
     private void Update()
     {
@@ -36,7 +39,11 @@ public class FoodSpawner : MonoBehaviour
         {
             return;
         }
-
+        if (Time.time > time + 60)
+        {
+            speedMultiplier += .1f;
+            time = Time.time;
+        }
         spawnTimerCounter -= Time.deltaTime;
         if (spawnTimerCounter <= 0)
         {

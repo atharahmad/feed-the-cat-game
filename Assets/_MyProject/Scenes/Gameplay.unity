@@ -2870,7 +2870,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -8908,8 +8908,8 @@ MonoBehaviour:
   chilliPrefab: {fileID: 5788704101436344735, guid: 8fe23fe1469beff4188b77db5b421e3c, type: 3}
   iceCreamPrefab: {fileID: 1054025198640407260, guid: 524fbc7f562192d4bae7a56ef2ebf3a7, type: 3}
   foodHolder: {fileID: 431303206}
-  spawnChilliAfterMin: 10
-  spawnChilliAfterMax: 20
+  spawnChilliAfterMin: 5
+  spawnChilliAfterMax: 12
   spawnCooldown: 1
   spawnCooldownReducer: 0
   reduceSpawnCooldownAfter: 7
@@ -9508,7 +9508,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -10329,7 +10329,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -10853,7 +10853,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
