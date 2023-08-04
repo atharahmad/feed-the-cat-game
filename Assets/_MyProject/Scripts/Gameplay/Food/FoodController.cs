@@ -8,7 +8,6 @@ public class FoodController : MonoBehaviour
 {
     public static Action<FoodController> OnReachedBorder;
     public static Action OnMelted;
-    public Trail trail;
     [SerializeField] private float minSpeed;
     [SerializeField] private float maxSpeed;
     [SerializeField] private int score;
@@ -18,6 +17,7 @@ public class FoodController : MonoBehaviour
     private float speed;
     private float torque;
 
+    public Trail trail;
     public bool isInMouth;
     public FoodType Type => type;
     public int Score => score;
@@ -28,7 +28,6 @@ public class FoodController : MonoBehaviour
         speed = UnityEngine.Random.Range(minSpeed, maxSpeed) * FoodSpawner.Instance.speedMultiplier;
         torque = UnityEngine.Random.Range(-100, 101);
 
-        trail.Setup(transform, GetComponent<Image>().sprite);
         fall = true;
 
         if (type == FoodType.IceCream && PlayerPrefs.GetInt("icecreamtutorial", -1) == -1)
@@ -43,6 +42,8 @@ public class FoodController : MonoBehaviour
             StartCoroutine(Tutorial.Instance.ShowInstruction(gameObject, "Avoid Chillies"));
             PlayerPrefs.SetInt("chillitutorial", 1);
         }
+        trail = Instantiate(GamePlayManager.Instance.iceCreamTrailPrefab, Camera.main.ScreenToWorldPoint(transform.position), Quaternion.identity).GetComponent<Trail>();//.Setup(_foodController.gameObject.transform);
+        trail.Setup(transform, GetComponent<Image>().sprite);
     }
 
     protected virtual void Update()

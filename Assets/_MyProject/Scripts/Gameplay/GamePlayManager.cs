@@ -11,6 +11,7 @@ public class GamePlayManager : MonoBehaviour
 
     public int Multiplier { get; private set; } = 1;
     public Transform foodHolder;
+    public GameObject iceCreamTrailPrefab;
 
     public static Action UpdatedScore;
     public static Action UpdatedCurrentAmountOfLives;

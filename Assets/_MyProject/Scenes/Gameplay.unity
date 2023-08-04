@@ -6024,6 +6024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodHolder: {fileID: 431303206}
+  iceCreamTrailPrefab: {fileID: 3073098208900218937, guid: 8a475babb25cad34a8ab7a6eea86406b, type: 3}
 --- !u!1 &757199906
 GameObject:
   m_ObjectHideFlags: 0
@@ -10327,7 +10328,6 @@ MonoBehaviour:
   spawnCooldownReducer: 0
   reduceSpawnCooldownAfter: 7
   minSpawnCooldown: 0.4
-  trailPrefab: {fileID: 3073098208900218937, guid: 8a475babb25cad34a8ab7a6eea86406b, type: 3}
   speedMultiplier: 0
 --- !u!4 &1450889226
 Transform:

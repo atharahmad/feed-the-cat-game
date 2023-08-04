@@ -17,6 +17,7 @@ public class Target : MonoBehaviour
         iceCreamAnim.GetComponent<RectTransform>().sizeDelta = GetComponent<RectTransform>().sizeDelta;
         iceCreamAnim.AddComponent<Image>();
         iceCreamAnim.transform.localScale = Vector3.one;
+        iceCreamAnim.SetActive(false);
     }
     public void Setup(int index,int _val)
     {

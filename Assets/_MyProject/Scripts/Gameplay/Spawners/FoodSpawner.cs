@@ -13,7 +13,6 @@ public class FoodSpawner : MonoBehaviour
     [SerializeField] private float spawnCooldownReducer;
     [SerializeField] private int reduceSpawnCooldownAfter;
     [SerializeField] private float minSpawnCooldown;
-    [SerializeField] private GameObject trailPrefab;
     public Transform FoodHolder => foodHolder;
 
     private float spawnTimerCounter;
@@ -65,7 +64,6 @@ public class FoodSpawner : MonoBehaviour
             _spawnPosition.x = Random.Range(Screen.width / 12f, Screen.width - Screen.width / 12f);
             _spawnPosition.y = Screen.height - Screen.height / 12f;
             _foodController.transform.position = _spawnPosition;
-            _foodController.trail = Instantiate(trailPrefab, Camera.main.ScreenToWorldPoint(_spawnPosition), Quaternion.identity).GetComponent<Trail>();//.Setup(_foodController.gameObject.transform) ;
 
             _foodController.Setup();
             spawnedCounter++;

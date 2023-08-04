@@ -65,6 +65,6 @@ public class CharacterController : MonoBehaviour
         }
         _collision.transform.SetParent(characterVisual.mouthMask);
         _foodController.GetComponent<Collider2D>().enabled = false;
-        Routine.Scale(_collision.gameObject.transform, Vector3.one, Vector3.one * .5f, 0.2f, () => Destroy(_collision.gameObject));
+        Routine.Scale(_collision.gameObject.transform, Vector3.one, Vector3.one * .5f, 0.2f, () => { Destroy(_foodController.trail.gameObject); Destroy(_collision.gameObject); });
     }
 }
