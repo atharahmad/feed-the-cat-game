@@ -141,8 +141,9 @@ public class GamePlayUI : MonoBehaviour
                 PlayerPrefs.SetInt("levelno", levelNo);
             }
         }
+        GamePlayManager.Instance.Pause();
         AudioManager.Instance.Play(AudioManager.VICTORY);
-        Routine.WaitAndCall(0.5f, ()=> { Time.timeScale = 0; winHandler.SetActive(true); });
+        Routine.WaitAndCall(0.5f, ()=> winHandler.SetActive(true));
     }
 
     public void GoToMainMenu()
