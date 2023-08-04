@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 88722292}
   - component: {fileID: 88722291}
   m_Layer: 5
-  m_Name: hand
+  m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -836,7 +836,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 239.23077, y: 268.46155}
+  m_SizeDelta: {x: 180, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &88722291
 MonoBehaviour:
@@ -3230,8 +3230,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 37.838375, y: -57.4735}
-  m_SizeDelta: {x: 46.923077, y: 84.61539}
+  m_AnchoredPosition: {x: 37.838375, y: -57}
+  m_SizeDelta: {x: 66, y: 86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &368348882
 MonoBehaviour:
@@ -7203,8 +7203,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 189.19186, y: -57.4735}
-  m_SizeDelta: {x: 46.923077, y: 84.61539}
+  m_AnchoredPosition: {x: 189.19186, y: -57}
+  m_SizeDelta: {x: 66, y: 86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &896485837
 MonoBehaviour:
@@ -9487,7 +9487,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 16.64993, y: -10000}
-  m_SizeDelta: {x: 15, y: 50}
+  m_SizeDelta: {x: 18, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1360811788
 MonoBehaviour:
@@ -12034,8 +12034,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 113.51513, y: -57.4735}
-  m_SizeDelta: {x: 46.923077, y: 84.61539}
+  m_AnchoredPosition: {x: 113.51513, y: -57}
+  m_SizeDelta: {x: 66, y: 86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1639165715
 MonoBehaviour:
@@ -15012,8 +15012,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 264.86862, y: -57.4735}
-  m_SizeDelta: {x: 46.923077, y: 84.61539}
+  m_AnchoredPosition: {x: 264.86862, y: -57}
+  m_SizeDelta: {x: 66, y: 86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013187839
 MonoBehaviour:

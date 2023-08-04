@@ -32,8 +32,8 @@ public class GamePlayUI : MonoBehaviour
     private void DesignLevel()
     {
         targets.Clear();
-        Level _level=null;
-        if (IO.DeserializeFile<Level>(levelNo.ToString()+".txt", ref _level))
+        Level _level = null;
+        if (IO.DeserializeFile<Level>(levelNo.ToString() + ".txt", ref _level))
         {
             for(int i = 0; i < _level.skinIndexes.Length; i++)
             {
@@ -48,7 +48,8 @@ public class GamePlayUI : MonoBehaviour
             if (levelNo < 5)
             {
                 noOfTargets = 1;
-            }else if(levelNo>=5 && levelNo < 10)
+            } 
+            else if(levelNo >= 5 && levelNo < 10)
             {
                 noOfTargets = 2;
             }
@@ -64,7 +65,7 @@ public class GamePlayUI : MonoBehaviour
             _level.targetValues = new int[noOfTargets];
             for (int i = 0; i < noOfTargets; i++)
             {
-                int _val = 3 * (levelNo + 1);
+                int _val = Random.Range(3, 7);
                 int index = Random.Range(0, 20);
                 targetList[i].Setup(index, _val);
                 targets.Add(targetList[i]);
@@ -141,8 +142,7 @@ public class GamePlayUI : MonoBehaviour
             }
         }
         AudioManager.Instance.Play(AudioManager.VICTORY);
-        
-        Routine.WaitAndCall(0.5f, ()=> winHandler.SetActive(true));
+        Routine.WaitAndCall(0.5f, ()=> { Time.timeScale = 0; winHandler.SetActive(true); });
     }
 
     public void GoToMainMenu()

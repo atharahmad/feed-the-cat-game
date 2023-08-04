@@ -56,7 +56,7 @@ public class FoodController : MonoBehaviour
         }
 
         var _position = transform.position;
-        _position = Vector3.MoveTowards(_position, isInMouth ? CharacterVisual.instance.mouthMask.position : _position + Vector3.down * 10, speed * Time.deltaTime * Screen.height / 2000f);
+        _position = Vector3.MoveTowards(_position, isInMouth ? CharacterVisual.Instance.mouthMask.position : _position + Vector3.down * 10, speed * Time.deltaTime * Screen.height / 2000f);
         transform.position = _position;
         if (type != FoodType.RewardingIceCream)
             transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + torque * Time.deltaTime);

@@ -20,12 +20,8 @@ public class CharacterVisual : MonoBehaviour
 
     private State currentState;
 
-    public static CharacterVisual instance;
-    private void Awake()
-    {
-        instance = this;
-    }
-
+    public static CharacterVisual Instance;
+    private void Awake() => Instance = this;
     private void Start()
     {
         //if (DataManager.Instance.PlayerData == null) { 
@@ -51,7 +47,7 @@ public class CharacterVisual : MonoBehaviour
     public void ThrowStick()
     {
         icecreamStick.eulerAngles = new Vector3(0, 0, UnityEngine.Random.Range(0, 360));
-        Routine.MoveConstant(icecreamStick, mouthPosition.position, new Vector2(mouthPosition.position.x, floorPosition.position.y), 0.03f);
+        Routine.MoveConstant(icecreamStick, mouthPosition.position, new Vector2(mouthPosition.position.x, floorPosition.position.y), 0.04f);
         
     }
 

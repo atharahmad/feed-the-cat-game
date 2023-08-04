@@ -1,17 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+
 public class Target : MonoBehaviour
 {
-    private Sprite skin;
     [SerializeField] TextMeshProUGUI targetDisplay;
-    int targetVal;
-    // Start is called before the first frame update
+    private Sprite skin;
+    private int targetVal;
+    private GameObject iceCreamAnim;
+
     void Start()
     {
-        
+        iceCreamAnim = new GameObject();
+        iceCreamAnim.transform.parent = FindAnyObjectByType<Canvas>().transform;
+        iceCreamAnim.AddComponent<RectTransform>();
+        iceCreamAnim.GetComponent<RectTransform>().sizeDelta = GetComponent<RectTransform>().sizeDelta;
+        iceCreamAnim.AddComponent<Image>();
+        iceCreamAnim.transform.localScale = Vector3.one;
     }
     public void Setup(int index,int _val)
     {
@@ -31,6 +36,9 @@ public class Target : MonoBehaviour
                 targetDisplay.text = targetVal.ToString();
                 if (targetVal == 0)
                     GamePlayUI.Instance.CheckLevelComplete();
+                iceCreamAnim.SetActive(true);
+                iceCreamAnim.GetComponent<Image>().sprite = skin;
+                Routine.MoveConstant(iceCreamAnim.transform, CharacterVisual.Instance.mouthMask.position, transform.position, 0.04f, () => iceCreamAnim.SetActive(false));
             }
         }
     }

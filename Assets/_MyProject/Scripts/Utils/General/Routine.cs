@@ -61,7 +61,7 @@ public static class Routine
         return instance.StartCoroutine(LerpRoutine(0, 1, speed, (val) => trans.pivot = startVal + (targetVal - startVal) * val, action));
     }
 
-    public static Coroutine MoveConstant(Transform trans, Vector3 startPos, Vector3 targetPos, float speed = 5f, Action action = null)
+    public static Coroutine MoveConstant(Transform trans, Vector3 startPos, Vector3 targetPos, float speed = .03f, Action action = null)
     {
         return instance.StartCoroutine(LerpConstantRoutine(0, 1, speed, (val) => trans.position = startPos + (targetPos - startPos) * val, action));
     }
