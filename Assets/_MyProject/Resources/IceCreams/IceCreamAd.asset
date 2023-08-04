@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc73a06d2b806594fba7d0680d15b33f, type: 3}
-  m_Name: Ad
+  m_Name: IceCreamAd
   m_EditorClassIdentifier: 
   <Id>k__BackingField: 24
   <Whole>k__BackingField: {fileID: 21300000, guid: 114ac6ab508e4e74ea7b3ab2531121cc, type: 3}

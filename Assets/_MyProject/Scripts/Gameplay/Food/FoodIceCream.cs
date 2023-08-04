@@ -21,7 +21,7 @@ public class FoodIceCream : FoodController
         base.Setup(_randomRotation);
         iceCream = iceCreams[Random.Range(0, iceCreams.Length)];
         imageDisplay.sprite = iceCream.Whole;
-        imageDisplay.SetNativeSize();
+        //imageDisplay.SetNativeSize();
         GetComponent<RectTransform>().sizeDelta = GetComponent<RectTransform>().sizeDelta * 1.1f;
     }
 

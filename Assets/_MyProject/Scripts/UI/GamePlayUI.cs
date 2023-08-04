@@ -20,7 +20,6 @@ public class GamePlayUI : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
         if (PlayerPrefs.GetInt("gametype") == 1)
         {
             infinitePlay.SetActive(false);
