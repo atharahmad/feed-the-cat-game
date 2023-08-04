@@ -13,6 +13,7 @@ public class GamePlayUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerDisplay;
     [SerializeField] private GameObject levelPlay;
     [SerializeField] private GameObject infinitePlay;
+    [SerializeField] private GameObject winHandler;
     [SerializeField] List<Target> targetList;
     public List<Sprite> skins;
     public List<Target> targets;
@@ -140,7 +141,13 @@ public class GamePlayUI : MonoBehaviour
             }
         }
         AudioManager.Instance.Play(AudioManager.VICTORY);
-        Routine.WaitAndCall(1,()=> SceneController.LoadMainMenu());
+        
+        Routine.WaitAndCall(0.5f, ()=> winHandler.SetActive(true));
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneController.LoadMainMenu();
     }
 
 }

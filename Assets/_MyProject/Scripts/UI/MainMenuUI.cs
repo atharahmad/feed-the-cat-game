@@ -101,7 +101,7 @@ public class MainMenuUI : MonoBehaviour
     private void Start()
     {
         levelNo = PlayerPrefs.GetInt("levelno");
-        levelDisplay.text = (levelNo + 1).ToString();
+        levelDisplay.text = "Level " + (levelNo + 1).ToString();
         AudioManager.Instance.PlayBackgroundMusic(AudioManager.MAIN_THEME_SONG);
         var _levelHolderTransform = levelHolder.transform;
         _levelHolderTransform.localPosition = new Vector3(_levelHolderTransform.localPosition.x,10000, levelHolder.localPosition.z);
