@@ -18,11 +18,11 @@ public class FoodIceCream : FoodController
 
     public override void Setup(bool _randomRotation = true)
     {
-        base.Setup(_randomRotation);
         iceCream = iceCreams[Random.Range(0, iceCreams.Length)];
         imageDisplay.sprite = iceCream.Whole;
         //imageDisplay.SetNativeSize();
         GetComponent<RectTransform>().sizeDelta = GetComponent<RectTransform>().sizeDelta * 1.1f;
+        base.Setup(_randomRotation);
     }
 
     protected override void HandleCollisionWithBorder()

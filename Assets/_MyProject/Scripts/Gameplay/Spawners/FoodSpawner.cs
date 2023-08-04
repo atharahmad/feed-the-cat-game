@@ -65,7 +65,7 @@ public class FoodSpawner : MonoBehaviour
             _spawnPosition.x = Random.Range(Screen.width / 12f, Screen.width - Screen.width / 12f);
             _spawnPosition.y = Screen.height - Screen.height / 12f;
             _foodController.transform.position = _spawnPosition;
-            //Instantiate(trailPrefab, Camera.main.ScreenToWorldPoint(_spawnPosition),Quaternion.identity).GetComponent<Trail>().reference = _foodController.gameObject.transform;
+            _foodController.trail = Instantiate(trailPrefab, Camera.main.ScreenToWorldPoint(_spawnPosition), Quaternion.identity).GetComponent<Trail>();//.Setup(_foodController.gameObject.transform) ;
 
             _foodController.Setup();
             spawnedCounter++;

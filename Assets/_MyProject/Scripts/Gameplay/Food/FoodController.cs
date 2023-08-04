@@ -8,7 +8,7 @@ public class FoodController : MonoBehaviour
 {
     public static Action<FoodController> OnReachedBorder;
     public static Action OnMelted;
-
+    public Trail trail;
     [SerializeField] private float minSpeed;
     [SerializeField] private float maxSpeed;
     [SerializeField] private int score;
@@ -27,6 +27,8 @@ public class FoodController : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, UnityEngine.Random.Range(0, 360));
         speed = UnityEngine.Random.Range(minSpeed, maxSpeed) * FoodSpawner.Instance.speedMultiplier;
         torque = UnityEngine.Random.Range(-100, 101);
+
+        trail.Setup(transform, GetComponent<Image>().sprite);
         fall = true;
 
         if (type == FoodType.IceCream && PlayerPrefs.GetInt("icecreamtutorial", -1) == -1)
@@ -54,7 +56,6 @@ public class FoodController : MonoBehaviour
         {
             return;
         }
-
         var _position = transform.position;
         _position = Vector3.MoveTowards(_position, isInMouth ? CharacterVisual.Instance.mouthMask.position : _position + Vector3.down * 10, speed * Time.deltaTime * Screen.height / 2000f);
         transform.position = _position;
