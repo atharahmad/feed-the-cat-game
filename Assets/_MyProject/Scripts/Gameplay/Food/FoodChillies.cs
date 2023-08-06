@@ -21,7 +21,6 @@ public class FoodChillies : FoodController
 
         if (_collision.CompareTag("Split"))
         {
-            Debug.Log("Chiili splitted");
             if (!CanSplit)
             {
                 return;
@@ -41,6 +40,8 @@ public class FoodChillies : FoodController
             _newChilli.Setup();
             _newChilli.image.sprite = image.sprite;//ensure new chili is same as original chili 
             _newChilli.Move(_direction);
+            _newChilli.trail.GetComponent<TrailRenderer>().enabled = false;
+            Routine.WaitAndCall(.2f, () => _newChilli.trail.GetComponent<TrailRenderer>().enabled = true);
         }
     }
 
@@ -56,6 +57,7 @@ public class FoodChillies : FoodController
         float _currentX = _position.x;
         float _animationTime = 0.3f;
         Sequence _sequence = DOTween.Sequence();
+        _sequence.Play();
         _sequence.Append(DOTween.To(() => _currentX, _x => _currentX = _x, _endPositionX, _animationTime).OnUpdate(() =>
         {
             transform.position = new Vector3(_currentX, _position.y, _position.z);
@@ -64,7 +66,6 @@ public class FoodChillies : FoodController
                 _sequence.Kill();
             }
         }));
-        _sequence.Play();
     }
 }
  

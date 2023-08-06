@@ -3,6 +3,14 @@ using UnityEngine;
 public class Trail : MonoBehaviour
 {
     public Transform reference;
+
+    public void Awake()
+    {
+        if (reference != null)
+            transform.position = (Vector2)Camera.main.ScreenToWorldPoint(reference.position);
+        GetComponent<TrailRenderer>().startWidth = GetComponent<TrailRenderer>().endWidth = 1;
+    }
+
     public void Setup(Transform _obj, Sprite image)
     {
         reference = _obj;

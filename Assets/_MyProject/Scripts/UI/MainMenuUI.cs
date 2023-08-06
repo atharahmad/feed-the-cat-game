@@ -17,7 +17,6 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private KeysPanel keysDisplay;
     [SerializeField] private SettingsUI settingsUI;
     [SerializeField] private TextMeshProUGUI levelDisplay;
-    private int levelNo;
     private void OnEnable()
     {
         playlevelButton.onClick.AddListener(PlayLevel);
@@ -75,7 +74,6 @@ public class MainMenuUI : MonoBehaviour
         AudioManager.Instance.Play(AudioManager.CAT_SELECT);
         CatSO.SelectedCat = CatSO.Get(DataManager.Instance.PlayerData.SelectedCat);
         PlayerPrefs.SetInt("gametype", 1);
-        PlayerPrefs.SetInt("currentlevel", levelNo);
         SceneController.LoadGamePlay();
     }
     public void PlayLevel(int _val)
@@ -88,7 +86,6 @@ public class MainMenuUI : MonoBehaviour
         AudioManager.Instance.Play(AudioManager.CAT_SELECT);
         CatSO.SelectedCat = CatSO.Get(DataManager.Instance.PlayerData.SelectedCat);
         PlayerPrefs.SetInt("gametype", 1);
-        PlayerPrefs.SetInt("currentlevel", _val);
         SceneController.LoadGamePlay();
     }
     private void ShowShop()
@@ -96,12 +93,9 @@ public class MainMenuUI : MonoBehaviour
         SceneController.LoadShop();
     }
 
-  
-
     private void Start()
     {
-        levelNo = PlayerPrefs.GetInt("levelno");
-        levelDisplay.text = "Level " + (levelNo + 1).ToString();
+        levelDisplay.text = "Level " + (PlayerPrefs.GetInt("currentLevel") + 1).ToString();
         AudioManager.Instance.PlayBackgroundMusic(AudioManager.MAIN_THEME_SONG);
         var _levelHolderTransform = levelHolder.transform;
         _levelHolderTransform.localPosition = new Vector3(_levelHolderTransform.localPosition.x,10000, levelHolder.localPosition.z);

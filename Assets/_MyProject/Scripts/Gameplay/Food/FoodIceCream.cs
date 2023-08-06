@@ -29,5 +29,6 @@ public class FoodIceCream : FoodController
     {
         OnReachedBorder?.Invoke(this);
         StartCoroutine(Melt(iceCream));
+        Destroy(trail.gameObject);
     }
 }

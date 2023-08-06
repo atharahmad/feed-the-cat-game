@@ -5,6 +5,7 @@ using TMPro;
 
 public class GamePlayUI : MonoBehaviour
 {
+    public static int levelNo = -1;
     public static GamePlayUI Instance;
     [SerializeField] private Button pauseButton;
     [SerializeField] private PauseHandler pauseHandler;
@@ -17,7 +18,6 @@ public class GamePlayUI : MonoBehaviour
     [SerializeField] List<Target> targetList;
     public List<Sprite> skins;
     public List<Target> targets;
-    int levelNo = -1;
     private void Awake()
     {
         Instance = this;
@@ -25,7 +25,7 @@ public class GamePlayUI : MonoBehaviour
         {
             infinitePlay.SetActive(false);
             levelPlay.SetActive(true);
-            levelNo = PlayerPrefs.GetInt("currentlevel");
+            levelNo = PlayerPrefs.GetInt("currentLevel");
             DesignLevel();
         }
     }
@@ -46,21 +46,14 @@ public class GamePlayUI : MonoBehaviour
             int noOfTargets = 0;
             _level = new Level();
             if (levelNo < 5)
-            {
                 noOfTargets = 1;
-            } 
             else if(levelNo >= 5 && levelNo < 10)
-            {
                 noOfTargets = 2;
-            }
             else if (levelNo >= 10 && levelNo < 20)
-            {
                 noOfTargets = 3;
-            }
             else if (levelNo >= 20 )
-            {
                 noOfTargets = 4;
-            }
+
             _level.skinIndexes = new int[noOfTargets];
             _level.targetValues = new int[noOfTargets];
             for (int i = 0; i < noOfTargets; i++)
@@ -90,24 +83,17 @@ public class GamePlayUI : MonoBehaviour
     private void Pause()
     {
         if (GamePlayManager.TimeScale==0)
-        {
             return;
-        }
         pauseHandler.Setup();
     }
 
     private void HandleGameEnded(bool _result)
     {
         if (_result)
-        {
-            //to-do handle game won
-        }
+        { }//to-do handle game won
         else
-        {
             continueHandler.Setup();
-        }
     }
-
 
     private void Start()
     {
@@ -135,20 +121,23 @@ public class GamePlayUI : MonoBehaviour
         }
         if (leveComplete)
         {
-            if (levelNo == PlayerPrefs.GetInt("levelno"))
+            if (levelNo == PlayerPrefs.GetInt("currentLevel"))
             {
                 levelNo++;
-                PlayerPrefs.SetInt("levelno", levelNo);
+                PlayerPrefs.SetInt("currentLevel", levelNo);
+                GamePlayManager.Instance.Pause();
+                AudioManager.Instance.Play(AudioManager.VICTORY);
+                Routine.WaitAndCall(0.5f, () => winHandler.SetActive(true));
             }
         }
-        GamePlayManager.Instance.Pause();
-        AudioManager.Instance.Play(AudioManager.VICTORY);
-        Routine.WaitAndCall(0.5f, ()=> winHandler.SetActive(true));
     }
 
     public void GoToMainMenu()
     {
         SceneController.LoadMainMenu();
     }
-
+    public void PlayNextLevel()
+    {
+        SceneController.LoadGamePlay();
+    }
 }

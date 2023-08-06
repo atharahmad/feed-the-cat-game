@@ -33,7 +33,7 @@ public class FoodController : MonoBehaviour
         if (type == FoodType.IceCream && PlayerPrefs.GetInt("icecreamtutorial", -1) == -1)
         {
             transform.position = new Vector3(Screen.width / 2f, transform.position.y, transform.position.z);
-            StartCoroutine(Tutorial.Instance.ShowInstruction(gameObject, "Eat IceCream To Get Points"));
+            StartCoroutine(Tutorial.Instance.ShowInstruction(gameObject, "Eat Icecream To Get Points"));
             PlayerPrefs.SetInt("icecreamtutorial", 1);
         }
         else if (type == FoodType.Chilli && PlayerPrefs.GetInt("chillitutorial", -1) == -1)
@@ -81,6 +81,7 @@ public class FoodController : MonoBehaviour
     {
         OnReachedBorder?.Invoke(this);
         Destroy(gameObject);
+        Destroy(trail.gameObject);
     }
 
     protected IEnumerator Melt(IceCreamSO _iceCream)

@@ -7,7 +7,7 @@ public class LevelHandler : MonoBehaviour
     public GameObject levelPrefab;
     public List<Vector2> levelsHolders;
     public int levelsUnlocked;
-    // Start is called before the first frame update
+
     void Start()
     {
         Initialize();
@@ -15,7 +15,7 @@ public class LevelHandler : MonoBehaviour
     }
     void Initialize()
     {
-        levelsUnlocked = PlayerPrefs.GetInt("levelno");
+        levelsUnlocked = PlayerPrefs.GetInt("currentLevel");
         for (int i = 0; i < transform.childCount; i++)
         {
             GameObject g = (GameObject)Instantiate(levelPrefab, transform.GetChild(i).transform);
