@@ -11,12 +11,12 @@ public class CustomScroller : MonoBehaviour
     public float swipeSpeed = 1;
     public RectTransform[] screens;
     public int[] screenNumbers;
-    public bool[] screenChnaged;
     float change;
+    public int totalScreens;
+    public int canMove = 0;
     // Start is called before the first frame update
     void Start()
     {
-        screenChnaged = new bool[2];
         targetPosition = new Vector2[2];
         screenNumbers = new int[2];
         for(int i = 0; i < 2; i++)
@@ -33,43 +33,45 @@ public class CustomScroller : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
+            if (Mathf.Sign(change) == canMove)
+                continue;
             screens[i].anchoredPosition = Vector3.Lerp(screens[i].anchoredPosition, targetPosition[i], speed);
             if (change > 0)
             {
-                if (!GetComponent<RectTransform>().rect.Contains(screens[i].anchoredPosition + Vector2.down * screens[i].sizeDelta.y/2.1f))
+                if (screens[i].anchoredPosition.y>1920f)
                 {
-                    if (!screenChnaged[i])
+                    if (screenNumbers[i] > 1)
                     {
                         Vector2 newPosition = screens[(i + 1) % 2].anchoredPosition - new Vector2(0, 1920);
                         Vector2 offset = newPosition - screens[i].anchoredPosition;
                         screens[i].anchoredPosition += offset;
                         targetPosition[i] += offset;
                         screenNumbers[i] -= 2;
-                        screenChnaged[i] = true;
+                        canMove = 0;
                     }
-                }
-                else
-                {
-                    screenChnaged[i] = false;
+                    else
+                    {
+                        canMove = 1;
+                    }
                 }
             }
             if (change < 0)
             {
-                if (!GetComponent<RectTransform>().rect.Contains(screens[i].anchoredPosition + Vector2.up * screens[i].sizeDelta.y / 2.1f))
+                if (screens[i].anchoredPosition.y<-1920f)
                 {
-                    if (!screenChnaged[i])
+                    if (screenNumbers[i] < totalScreens - 2)
                     {
                         Vector2 newPosition = screens[(i + 1) % 2].anchoredPosition + new Vector2(0, 1920);
                         Vector2 offset = newPosition - screens[i].anchoredPosition;
                         screens[i].anchoredPosition += offset;
                         targetPosition[i] += offset;
                         screenNumbers[i] += 2;
-                        screenChnaged[i] = true;
+                        canMove = 0;
                     }
-                }
-                else
-                {
-                    screenChnaged[i] = false;
+                    else
+                    {
+                        canMove = -1;
+                    }
                 }
             }
         }
@@ -77,6 +79,8 @@ public class CustomScroller : MonoBehaviour
     public void Drag()
     {
         change = Input.mousePosition.y - lastMousePos.y;
+        if (Mathf.Sign(change) == canMove)
+            return;
         swipeSpeed = (Time.time - startTime) > 0 ? (Time.time - startTime) : 1;
         float distance = (change) / (swipeSpeed * 10);
         for (int i = 0; i < 2; i++)

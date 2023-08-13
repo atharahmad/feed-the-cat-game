@@ -71,9 +71,16 @@ public class MainMenuUI : MonoBehaviour
             UIManager.Instance.OkDialog.Show("You don’t have enough hearts!");
             return;
         }
+        if (LevelHandler.instance.levelsUnlocked < 0)
+        {
+
+            UIManager.Instance.OkDialog.Show("All levels are locked!");
+            return;
+        }
         AudioManager.Instance.Play(AudioManager.CAT_SELECT);
         CatSO.SelectedCat = CatSO.Get(DataManager.Instance.PlayerData.SelectedCat);
         PlayerPrefs.SetInt("gametype", 1);
+        PlayerPrefs.SetInt("currentLevel", LevelHandler.instance.levelsUnlocked);
         SceneController.LoadGamePlay();
     }
     public void PlayLevel(int _val)
@@ -83,10 +90,39 @@ public class MainMenuUI : MonoBehaviour
             UIManager.Instance.OkDialog.Show("You don’t have enough hearts!");
             return;
         }
-        AudioManager.Instance.Play(AudioManager.CAT_SELECT);
-        CatSO.SelectedCat = CatSO.Get(DataManager.Instance.PlayerData.SelectedCat);
-        PlayerPrefs.SetInt("gametype", 1);
-        SceneController.LoadGamePlay();
+
+        if (_val <= LevelHandler.instance.levelsUnlocked)
+        {
+            AudioManager.Instance.Play(AudioManager.CAT_SELECT);
+            CatSO.SelectedCat = CatSO.Get(DataManager.Instance.PlayerData.SelectedCat);
+            PlayerPrefs.SetInt("gametype", 1);
+            PlayerPrefs.SetInt("currentLevel", _val);
+            SceneController.LoadGamePlay();
+        }
+        else
+        {
+            if (_val == LevelHandler.instance.levelsUnlocked + 1)
+            {
+                if (DataManager.Instance.PlayerData.Keys >= 3)
+                {
+                    DataManager.Instance.PlayerData.Keys -= 3;
+                    PlayerPrefs.SetInt("levelscompleted", _val + 1);
+                    AudioManager.Instance.Play(AudioManager.CAT_SELECT);
+                    CatSO.SelectedCat = CatSO.Get(DataManager.Instance.PlayerData.SelectedCat);
+                    PlayerPrefs.SetInt("gametype", 1);
+                    PlayerPrefs.SetInt("currentLevel", _val);
+                    SceneController.LoadGamePlay();
+                }
+                else
+                {
+                    UIManager.Instance.OkDialog.Show("You don’t have enough keys!");
+                }
+            }
+            else
+            {
+                UIManager.Instance.OkDialog.Show("Unlock prevous level!");
+            }
+        }
     }
     private void ShowShop()
     {
@@ -95,7 +131,7 @@ public class MainMenuUI : MonoBehaviour
 
     private void Start()
     {
-        levelDisplay.text = "Level " + (PlayerPrefs.GetInt("currentLevel") + 1).ToString();
+        levelDisplay.text = "Level " + (LevelHandler.instance.levelsUnlocked + 1);
         AudioManager.Instance.PlayBackgroundMusic(AudioManager.MAIN_THEME_SONG);
         var _levelHolderTransform = levelHolder.transform;
         _levelHolderTransform.localPosition = new Vector3(_levelHolderTransform.localPosition.x,10000, levelHolder.localPosition.z);

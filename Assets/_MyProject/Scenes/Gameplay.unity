@@ -13169,8 +13169,8 @@ MonoBehaviour:
   prefab: {fileID: 5465343989766625303, guid: a35572f4366837042938a3fc3451984d, type: 3}
   foodHolder: {fileID: 431303206}
   initialCooldown: 60
-  minCooldown: 45
-  maxCooldown: 75
+  minCooldown: 60
+  maxCooldown: 61
   rewardtimeBar: {fileID: 1594584364}
   timer: {fileID: 1754442144}
 --- !u!4 &1797955154

@@ -53,13 +53,14 @@ public class GamePlayUI : MonoBehaviour
                 noOfTargets = 3;
             else if (levelNo >= 20 )
                 noOfTargets = 4;
-
             _level.skinIndexes = new int[noOfTargets];
             _level.targetValues = new int[noOfTargets];
+            
             for (int i = 0; i < noOfTargets; i++)
             {
                 int _val = Random.Range(3, 7);
-                int index = Random.Range(0, 20);
+                int index = Random.Range(i * 20 / noOfTargets, (i * 20 / noOfTargets + 20 / noOfTargets));
+                Debug.Log(i * 20 / noOfTargets + " ::: " + (i * 20 / noOfTargets + 20 / noOfTargets));
                 targetList[i].Setup(index, _val);
                 targets.Add(targetList[i]);
                 _level.skinIndexes[i] = index;
